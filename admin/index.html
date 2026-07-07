@@ -4,9 +4,64 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Admin - Radio Crepuscular</title>
+  <script>
+    window.CMS_CONFIG = {
+      backend: {
+        name: 'github',
+        repo: 'Virgim17/radio-crepuscular',
+        branch: 'main',
+        auth_type: 'pkce',
+        app_id: 'TU_CLIENT_ID_AQUI'
+      },
+      media_folder: 'assets/imagenes',
+      public_folder: '/assets/imagenes',
+      collections: [
+        {
+          name: 'noticias',
+          label: 'Noticias',
+          folder: 'content/noticias',
+          create: true,
+          slug: '{{day}}-{{month}}-{{year}}-{{slug}}',
+          fields: [
+            {label: 'Título', name: 'titulo', widget: 'string'},
+            {label: 'Fecha', name: 'fecha', widget: 'datetime'},
+            {label: 'Imagen', name: 'imagen', widget: 'image'},
+            {label: 'Contenido', name: 'cuerpo', widget: 'markdown'}
+          ]
+        },
+        {
+          name: 'locutores',
+          label: 'Locutores',
+          folder: 'content/locutores',
+          create: true,
+          slug: '{{slug}}',
+          fields: [
+            {label: 'Nombre', name: 'nombre', widget: 'string'},
+            {label: 'Foto', name: 'foto', widget: 'image'},
+            {label: 'Programa', name: 'programa', widget: 'string'},
+            {label: 'Biografía', name: 'bio', widget: 'text'}
+          ]
+        },
+        {
+          name: 'programas',
+          label: 'Programas',
+          folder: 'content/programas',
+          create: true,
+          slug: '{{slug}}',
+          fields: [
+            {label: 'Nombre', name: 'nombre', widget: 'string'},
+            {label: 'Horario', name: 'horario', widget: 'string'},
+            {label: 'Días', name: 'dias', widget: 'string'},
+            {label: 'Descripción', name: 'descripcion', widget: 'text'},
+            {label: 'Imagen', name: 'imagen', widget: 'image'}
+          ]
+        }
+      ]
+    };
+  </script>
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 </head>
 <body>
   <div id="root"></div>
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 </body>
 </html>
