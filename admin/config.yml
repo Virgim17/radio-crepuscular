@@ -1,1 +1,42 @@
+backend:
+  name: github
+  repo: tu-usuario/radio-crepuscular
+  branch: main
 
+media_folder: "assets/imagenes"
+public_folder: "/assets/imagenes"
+
+collections:
+  - name: "noticias"
+    label: "Noticias"
+    folder: "content/noticias"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Título", name: "titulo", widget: "string"}
+      - {label: "Fecha", name: "fecha", widget: "datetime"}
+      - {label: "Imagen", name: "imagen", widget: "image"}
+      - {label: "Contenido", name: "cuerpo", widget: "markdown"}
+
+  - name: "locutores"
+    label: "Locutores"
+    folder: "content/locutores"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Nombre", name: "nombre", widget: "string"}
+      - {label: "Foto", name: "foto", widget: "image"}
+      - {label: "Programa", name: "programa", widget: "string"}
+      - {label: "Biografía", name: "bio", widget: "text"}
+
+  - name: "programas"
+    label: "Programas"
+    folder: "content/programas"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Nombre", name: "nombre", widget: "string"}
+      - {label: "Horario", name: "horario", widget: "string"}
+      - {label: "Días", name: "dias", widget: "string"}
+      - {label: "Descripción", name: "descripcion", widget: "text"}
+      - {label: "Imagen", name: "imagen", widget: "image"}
