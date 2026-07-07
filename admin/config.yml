@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: tu-usuario/radio-crepuscular
+  repo: Virgim17/radio-crepuscular
   branch: main
 
 media_folder: "assets/imagenes"
