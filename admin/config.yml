@@ -2,8 +2,8 @@ backend:
   name: github
   repo: Virgim17/radio-crepuscular
   branch: main
-  base_url: https://crepuscularfm.com.ve
-  auth_endpoint: /api/auth
+  auth_type: pkce
+  app_id: Ov23lilIHZfYHOqfRA8v
 
 media_folder: "assets/imagenes"
 public_folder: "/assets/imagenes"
