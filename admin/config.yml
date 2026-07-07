@@ -1,5 +1,5 @@
 backend:
-  name: github
+  name: git-gateway
   repo: Virgim17/radio-crepuscular
   branch: main
 
