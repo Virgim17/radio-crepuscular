@@ -102,7 +102,6 @@ function aplicarConfiguracion() {
       </li>
     `).join('');
   }
-}
 
 function setText(id, value) {
   const el = document.getElementById(id);
