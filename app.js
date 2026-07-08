@@ -8,6 +8,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
 async function iniciar() {
   try {
+
+    async function iniciar() {
+  try {
+    // 🖤 Aplicar modo luto PRIMERO
+    aplicarModoLuto();
+    
+    // 1. Aplicar configuración a todo el sitio
+    aplicarConfiguracion();
+    // ... resto del código
     // 1. Aplicar configuración a todo el sitio
     aplicarConfiguracion();
     
