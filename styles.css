@@ -240,7 +240,7 @@ button { font: inherit; cursor: pointer; border: 0; background: none; color: inh
 .hero > .container { position: relative; z-index: 1; }
 .hero__slogan {
   font-family: var(--font-display);
-  font-size: clamp(1.8rem, 5vw, 3.5rem);
+  font-size: clamp(1.4rem, 4vw, 2.5rem);
   letter-spacing: 2px;
   line-height: 1.1;
   color: var(--crep-sol);
