@@ -312,3 +312,43 @@ function inicializarReproductor() {
     }
   }
 }
+
+// =========================================================
+// 🖤 MODO LUTO
+// =========================================================
+function aplicarModoLuto() {
+  const cfg = window.RADIO_CONFIG;
+  if (!cfg || !cfg.modoLuto) return;
+  
+  const luto = cfg.modoLuto;
+  
+  // Verificar si está activo por fechas
+  let debeActivarse = luto.activo;
+  
+  if (luto.fechaInicio && luto.fechaFin) {
+    const hoy = new Date();
+    hoy.setHours(0, 0, 0, 0);
+    const inicio = new Date(luto.fechaInicio);
+    const fin = new Date(luto.fechaFin);
+    
+    debeActivarse = hoy >= inicio && hoy <= fin;
+  }
+  
+  if (debeActivarse) {
+    document.body.classList.add('modo-luto');
+    
+    // Insertar banner de luto al inicio del body
+    const banner = document.createElement('div');
+    banner.className = 'luto-banner';
+    banner.innerHTML = `
+      <div class="luto-banner__text">
+        <span class="luto-banner__candle">🕯️</span>
+        <span>${luto.mensaje || 'En luto.'}</span>
+        <span class="luto-banner__candle">🕯️</span>
+      </div>
+    `;
+    document.body.insertBefore(banner, document.body.firstChild);
+  }
+}
+
+// Llamar esta función dentro de iniciar()
