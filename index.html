@@ -1,13 +1,144 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Radio Crepuscular 99.5 FM</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Radio Crepuscular 99.5 FM — Somos las voces, voces combativas. Noticias, programas y locutores de la radio comunitaria." />
+  <meta name="theme-color" content="#1A1A2E" />
+
+  <title>Radio Crepuscular 99.5 FM ☭ Voces Combativas</title>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Radio Crepuscular 99.5 FM" />
+  <meta property="og:description" content="☭ ¡Somos Las voces, Voces Combativas! ✊🚩" />
+  <meta property="og:type" content="website" />
+
+  <!-- Tipografías -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Favicon (emoji SVG inline) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📻</text></svg>" />
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
-    <h1>Radio Crepuscular 99.5 FM</h1>
-    <p>⭐☭ ¡Somos Las voces... Voces Combativas! ✊🚩</p>
-    <p>Sitio en construcción...</p>
+
+  <!-- ============== HEADER ============== -->
+  <header class="site-header" role="banner">
+    <div class="header__inner container">
+      <a href="/" class="header__brand" aria-label="Inicio Radio Crepuscular">
+        <span class="header__logo" aria-hidden="true">📻</span>
+        <div class="header__text">
+          <h1 class="header__title">Radio Crepuscular</h1>
+          <span class="header__freq">99.5 FM</span>
+        </div>
+      </a>
+
+      <nav class="header__nav" aria-label="Navegación principal">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="menu-principal">
+          <span></span><span></span><span></span>
+          <span class="sr-only">Menú</span>
+        </button>
+        <ul id="menu-principal" class="nav__list">
+          <li><a href="#noticias">Noticias</a></li>
+          <li><a href="#programas">Programas</a></li>
+          <li><a href="#locutores">Locutores</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- Slogan hero -->
+    <div class="hero">
+      <div class="container">
+        <p class="hero__slogan">☭ ¡Somos Las voces, Voces Combativas! ✊🚩</p>
+        <p class="hero__sub">La radio del pueblo, en el aire y en la lucha.</p>
+        <a href="#noticias" class="btn btn--primary">Ver últimas noticias</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ============== NOTICIAS ============== -->
+    <section id="noticias" class="section" aria-labelledby="titulo-noticias">
+      <div class="container">
+        <header class="section__header">
+          <h2 id="titulo-noticias" class="section__title">Últimas Noticias</h2>
+          <p class="section__subtitle">Información sin filtros, directa desde la trinchera.</p>
+        </header>
+        <div id="grid-noticias" class="grid grid--noticias" aria-live="polite">
+          <p class="loading">Cargando noticias…</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== PROGRAMAS ============== -->
+    <section id="programas" class="section section--alt" aria-labelledby="titulo-programas">
+      <div class="container">
+        <header class="section__header">
+          <h2 id="titulo-programas" class="section__title">Nuestra Programación</h2>
+          <p class="section__subtitle">Sintoniza nuestras voces a lo largo de la semana.</p>
+        </header>
+        <div id="grid-programas" class="grid grid--programas" aria-live="polite">
+          <p class="loading">Cargando programas…</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== LOCUTORES ============== -->
+    <section id="locutores" class="section" aria-labelledby="titulo-locutores">
+      <div class="container">
+        <header class="section__header">
+          <h2 id="titulo-locutores" class="section__title">Nuestras Voces</h2>
+          <p class="section__subtitle">Conoce a quienes ponen la cara y la palabra.</p>
+        </header>
+        <div id="grid-locutores" class="grid grid--locutores" aria-live="polite">
+          <p class="loading">Cargando locutores…</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============== FOOTER ============== -->
+  <footer id="contacto" class="site-footer" role="contentinfo">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <h3>Radio Crepuscular 99.5 FM</h3>
+        <p>☭ ¡Somos Las voces, Voces Combativas! ✊🚩</p>
+      </div>
+      <div class="footer__contact">
+        <h4>Contacto</h4>
+        <ul>
+          <li>📍 Tu ciudad, tu barrio</li>
+          <li>📞 +00 000 000 000</li>
+          <li>✉️ contacto@radiocrepuscular.fm</li>
+        </ul>
+      </div>
+      <div class="footer__social">
+        <h4>Síguenos</h4>
+        <ul>
+          <li><a href="#" aria-label="Facebook">Facebook</a></li>
+          <li><a href="#" aria-label="Instagram">Instagram</a></li>
+          <li><a href="#" aria-label="Twitter">Twitter</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__copy">
+      <p>© <span id="year"></span> Radio Crepuscular — Hecho con 🔥 por la comunidad.</p>
+    </div>
+  </footer>
+
+  <!-- Librerías para parseo de Markdown -->
+  <script src="https://unpkg.com/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+  <script src="https://unpkg.com/gray-matter@4.0.3/dist/gray-matter.js"></script>
+  <script src="https://unpkg.com/marked@12.0.0/marked.min.js"></script>
+
+  <!-- App -->
+  <script src="/app.js" defer></script>
 </body>
 </html>
