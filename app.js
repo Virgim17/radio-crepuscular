@@ -35,6 +35,16 @@ async function iniciar() {
     
     // 5. Reproductor
     inicializarReproductor();
+
+      // Alianzas
+  const alianzasContainer = document.getElementById('footer-alianzas');
+  if (alianzasContainer && cfg.alianzas) {
+    alianzasContainer.innerHTML = cfg.alianzas.map(alianza => `
+      <a href="${alianza.url}" target="_blank" rel="noopener" class="alianza__item" aria-label="${alianza.nombre}">
+        <img src="${alianza.logo}" alt="${alianza.nombre}" class="alianza__logo" loading="lazy" />
+      </a>
+    `).join('');
+  }
     
   } catch (error) {
     console.error('Error al iniciar:', error);
