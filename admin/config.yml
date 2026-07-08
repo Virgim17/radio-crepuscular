@@ -2,8 +2,7 @@ backend:
   name: github
   repo: Virgim17/radio-crepuscular
   branch: main
-  auth_type: pkce
-  app_id: Ov23lilIHZfYHOqfRA8v
+  base_url: https://decap-oauth-proxy.Virgim17.workers.dev
 
 media_folder: "assets/imagenes"
 public_folder: "/assets/imagenes"
