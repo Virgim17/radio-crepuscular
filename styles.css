@@ -895,3 +895,91 @@ button { font: inherit; cursor: pointer; border: 0; background: none; color: inh
     transition-duration: 0.01ms !important;
   }
 }
+
+/* =========================================================
+   🖤 MODO LUTO
+   ========================================================= */
+
+body.modo-luto {
+  filter: grayscale(100%) brightness(0.85);
+}
+
+body.modo-luto .hero__slogan,
+body.modo-luto .section__title,
+body.modo-luto .card-noticia__titulo,
+body.modo-luto .card-programa__nombre,
+body.modo-luto .card-locutor__nombre,
+body.modo-luto .header__title,
+body.modo-luto .footer__brand h3 {
+  background: linear-gradient(135deg, #ccc 0%, #888 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+body.modo-luto .player__btn--play,
+body.modo-luto .btn--primary {
+  background: linear-gradient(135deg, #555 0%, #333 100%) !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5) !important;
+}
+
+body.modo-luto .player__live-dot {
+  background: #666 !important;
+  box-shadow: 0 0 10px #666 !important;
+  animation: none !important;
+}
+
+/* Banner de luto */
+.luto-banner {
+  background: linear-gradient(90deg, #000 0%, #1a1a1a 50%, #000 100%);
+  border-bottom: 1px solid #333;
+  padding: 0.75rem 0;
+  text-align: center;
+  color: #aaa;
+  font-size: 0.9rem;
+  font-style: italic;
+  letter-spacing: 1px;
+  position: relative;
+  z-index: 1001;
+}
+
+.luto-banner__text {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.luto-banner__candle {
+  font-size: 1.2rem;
+  animation: flicker 2s ease-in-out infinite;
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.1); }
+}
+
+/* Crespón negro en el logo */
+body.modo-luto .header__logo,
+body.modo-luto .player__logo,
+body.modo-luto .footer__logo {
+  position: relative;
+}
+
+body.modo-luto .header__logo::after,
+body.modo-luto .player__logo::after,
+body.modo-luto .footer__logo::after {
+  content: '🖤';
+  position: absolute;
+  bottom: -5px;
+  right: -5px;
+  font-size: 1.2rem;
+  background: #000;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #333;
+}
