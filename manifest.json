@@ -1,0 +1,12 @@
+{
+  "noticias": [
+    { "archivo": "primera-noticia.md" },
+    { "archivo": "otra-noticia.md" }
+  ],
+  "locutores": [
+    { "archivo": "juan-perez.md" }
+  ],
+  "programas": [
+    { "archivo": "amanecer-rojo.md" }
+  ]
+}
