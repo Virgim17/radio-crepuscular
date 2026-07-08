@@ -7,7 +7,7 @@ window.RADIO_CONFIG = {
   // Información de la radio
   nombre: 'Radio Crepuscular',
   frecuencia: '99.5 FM',
-  slogan: '☭ ¡Somos Las voces, Voces Combativas! ✊🚩',
+  slogan: '☭ ¡Somos Las voces... Voces Combativas! ✊🚩',
   descripcion: 'La radio del pueblo, en el aire y en la lucha.',
   
   // Stream de audio (Shoutcast)
@@ -18,7 +18,7 @@ window.RADIO_CONFIG = {
   
   // Contacto
   contacto: {
-    direccion: 'Caracas, Venezuela',
+    direccion: 'Bqto, Venezuela',
     telefono: '+58 000 000 0000',
     email: 'contacto@radiocrepuscular.fm',
     whatsapp: '+580000000000'
