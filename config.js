@@ -46,6 +46,25 @@ window.RADIO_CONFIG = {
     youtube: 'https://youtube.com/@radiocrepuscular',
     tiktok: 'https://tiktok.com/@radiocrepuscular'
   },
+
+      // Alianzas y partners (logos en el footer)
+  alianzas: [
+    {
+      nombre: 'Alianza 1',
+      logo: '/assets/imagenes/alianza-1.png',
+      url: 'https://ejemplo.com'
+    },
+    {
+      nombre: 'Alianza 2',
+      logo: '/assets/imagenes/alianza-2.png',
+      url: 'https://ejemplo2.com'
+    },
+    {
+      nombre: 'Alianza 3',
+      logo: '/assets/imagenes/alianza-3.png',
+      url: 'https://ejemplo3.com'
+    }
+  ],
   
   // Colores (puedes cambiarlos aquí)
   colores: {
