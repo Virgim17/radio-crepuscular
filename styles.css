@@ -983,3 +983,61 @@ body.modo-luto .footer__logo::after {
   justify-content: center;
   border: 2px solid #333;
 }
+
+/* =========================================================
+   ALIANZAS EN FOOTER
+   ========================================================= */
+
+.footer__alianzas {
+  position: relative;
+  z-index: 1;
+  padding: 2rem 0;
+  border-top: 1px solid var(--glass-border);
+  text-align: center;
+}
+
+.footer__alianzas h4 {
+  font-family: var(--font-display);
+  color: var(--texto);
+  letter-spacing: 1.5px;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.alianzas__grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.alianza__item {
+  display: block;
+  transition: all var(--t-fast);
+  opacity: 0.7;
+  filter: grayscale(50%);
+}
+
+.alianza__item:hover {
+  opacity: 1;
+  filter: grayscale(0%);
+  transform: scale(1.1);
+}
+
+.alianza__logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  border-radius: 12px;
+  background: var(--glass-bg);
+  padding: 0.5rem;
+  border: 1px solid var(--glass-border);
+}
+
+@media (max-width: 640px) {
+  .alianzas__grid { gap: 1.5rem; }
+  .alianza__logo { width: 60px; height: 60px; }
+}
