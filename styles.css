@@ -223,7 +223,7 @@ button { font: inherit; cursor: pointer; border: 0; background: none; color: inh
 /* ---------- 5. HERO ---------- */
 .hero {
   background: var(--grad-hero);
-  padding: clamp(3rem, 10vw, 6rem) 0;
+  padding: clamp(2rem, 6vw, 4rem) 0;
   text-align: center;
   position: relative;
   overflow: hidden;
