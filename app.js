@@ -259,3 +259,93 @@ function mostrarErrorGlobal(mensaje) {
     `;
   }
 }
+
+// =========================================================
+// REPRODUCTOR DE RADIO
+// =========================================================
+
+let audioElement = null;
+let isPlaying = false;
+
+function inicializarReproductor() {
+  audioElement = document.getElementById('audio-stream');
+  const btnPlay = document.getElementById('btn-play');
+  const btnMute = document.getElementById('btn-mute');
+  const volumeSlider = document.getElementById('volume-slider');
+  const iconVolume = document.getElementById('icon-volume');
+  const iconMute = document.getElementById('icon-mute');
+  const player = document.getElementById('player');
+  
+  if (!audioElement || !btnPlay) return;
+  
+  // Mostrar reproductor
+  player.classList.add('is-visible');
+  document.body.classList.add('has-player');
+  
+  // Configurar volumen inicial
+  audioElement.volume = 0.8;
+  
+  // Botón Play/Pause
+  btnPlay.addEventListener('click', () => {
+    if (isPlaying) {
+      audioElement.pause();
+      isPlaying = false;
+      btnPlay.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>';
+      btnPlay.setAttribute('aria-label', 'Reproducir');
+    } else {
+      audioElement.play().catch(error => {
+        console.error('Error al reproducir:', error);
+        alert('No se pudo conectar con el stream. Verifica tu conexión a internet.');
+      });
+      isPlaying = true;
+      btnPlay.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>';
+      btnPlay.setAttribute('aria-label', 'Pausar');
+    }
+  });
+  
+  // Botón Mute/Unmute
+  btnMute.addEventListener('click', () => {
+    if (audioElement.muted) {
+      audioElement.muted = false;
+      volumeSlider.value = audioElement.volume * 100;
+      iconVolume.style.display = 'block';
+      iconMute.style.display = 'none';
+    } else {
+      audioElement.muted = true;
+      volumeSlider.value = 0;
+      iconVolume.style.display = 'none';
+      iconMute.style.display = 'block';
+    }
+  });
+  
+  // Slider de volumen
+  volumeSlider.addEventListener('input', (e) => {
+    const value = e.target.value / 100;
+    audioElement.volume = value;
+    
+    if (value === 0) {
+      audioElement.muted = true;
+      iconVolume.style.display = 'none';
+      iconMute.style.display = 'block';
+    } else {
+      audioElement.muted = false;
+      iconVolume.style.display = 'block';
+      iconMute.style.display = 'none';
+    }
+  });
+  
+  // Si el stream se detiene por error
+  audioElement.addEventListener('error', () => {
+    console.error('Error en el stream de audio');
+    isPlaying = false;
+    btnPlay.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>';
+  });
+}
+
+// Llamar a inicializarReproductor() después de iniciar()
+// Modifica la función iniciar() para que llame a esto:
+const iniciarOriginal = iniciar;
+async function iniciar() {
+  await iniciarOriginal();
+  inicializarReproductor();
+}
