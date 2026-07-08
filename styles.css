@@ -1041,3 +1041,39 @@ body.modo-luto .footer__logo::after {
   .alianzas__grid { gap: 1.5rem; }
   .alianza__logo { width: 60px; height: 60px; }
 }
+
+/* =========================================================
+   REDES SOCIALES CON ICONOS SVG
+   ========================================================= */
+
+.social__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: 50%;
+  color: var(--texto);
+  transition: all var(--t-fast);
+}
+
+.social__icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.social__icon:hover {
+  background: var(--glass-bg-hover);
+  border-color: var(--crep-naranja);
+  color: var(--crep-sol);
+  transform: translateY(-3px) scale(1.1);
+  box-shadow: 0 8px 20px rgba(255, 107, 53, 0.3);
+}
+
+.social__icon:hover svg {
+  fill: var(--crep-sol);
+}
