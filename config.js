@@ -4,6 +4,20 @@
 // =========================================================
 
 window.RADIO_CONFIG = {
+    // ============================================
+  // 🖤 MODO LUTO
+  // Para activar: pon modoLuto en true
+  // Para fechas automáticas: pon fechaInicio y fechaFin
+  // Si fechaFin ya pasó, se desactiva solo
+  // ============================================
+  modoLuto: {
+    activo: true,  // ← Cambia a false para volver al diseño normal
+    mensaje: 'En memoria de nuestro pueblo. Venezuela está de luto.',
+    // Opcional: fechas automáticas (formato: 'YYYY-MM-DD')
+    // Si pones null, queda activo hasta que cambies "activo" a false
+    fechaInicio: '2026-07-08',
+    fechaFin: '2026-07-15'  // ← Después de esta fecha, vuelve a la normalidad
+  },
   // Información de la radio
   nombre: 'Radio Crepuscular',
   frecuencia: '99.5 FM',
