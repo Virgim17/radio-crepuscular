@@ -25,7 +25,7 @@ window.RADIO_CONFIG = {
   descripcion: 'La radio del pueblo, en el aire y en la lucha.',
   
   // Stream de audio (Shoutcast)
-  streamUrl: 'http://88.150.230.110:27223/stream',
+  streamUrl: 'https://uk2freenew.listen2myradio.com/live.mp3?typeportmount=s2_27223_stream_767045788,
   
   // Logo e imágenes
   logo: '/assets/imagenes/logo.png',
