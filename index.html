@@ -7,19 +7,49 @@
   <meta name="theme-color" content="#1A1A2E" />
   <title>Radio Crepuscular 99.5 FM ☭ Voces Combativas</title>
 
-  <!-- Tipografías -->
+  <!-- 1. FAVICON: El icono de la pestaña del navegador -->
+  <link rel="icon" type="image/png" href="/assets/imagenes/logo.png" />
+
+  <!-- 2. TIPOGRAFÍAS -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
-  <!-- 1. PRIMERO: Configuración -->
+  <!-- 3. CONFIGURACIÓN -->
   <script src="/config.js"></script>
-  <!-- 2. SEGUNDO: Estilos -->
+  
+  <!-- 4. ESTILOS -->
   <link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
 
-  <!-- ============== REPRODUCTOR FIJO ARRIBA ============== -->
+  <!-- ============== MENÚ (HEADER) - VA PRIMERO Y ES STICKY ============== -->
+  <header class="site-header" role="banner">
+    <div class="header__inner container">
+      <a href="/" class="header__brand" aria-label="Inicio">
+        <img id="header-logo" src="" alt="Logo" class="header__logo" />
+        <div class="header__text">
+          <h1 class="header__title" id="header-nombre">Radio</h1>
+          <span class="header__freq" id="header-freq">FM</span>
+        </div>
+      </a>
+
+      <nav class="header__nav" aria-label="Navegación principal">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="menu-principal">
+          <span></span><span></span><span></span>
+          <span class="sr-only">Menú</span>
+        </button>
+        <ul id="menu-principal" class="nav__list">
+          <li><a href="#noticias">Noticias</a></li>
+          <li><a href="#programas">Programas</a></li>
+          <li><a href="#locutores">Locutores</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </div
+  </header>
+
+  <!-- ============== REPRODUCTOR - VA SEGUNDO, NO ES FIJO ============== -->
   <div id="player" class="radio-player" role="region" aria-label="Reproductor de radio en vivo">
     <div class="player__inner container">
       <div class="player__left">
@@ -55,42 +85,11 @@
     </div>
   </div>
 
-  <!-- Elemento de audio (oculto, el src lo pone JS) -->
+  <!-- Elemento de audio (oculto) -->
   <audio id="audio-stream" preload="none"></audio>
 
-  <!-- ============== HEADER ============== -->
-  <header class="site-header" role="banner">
-    <div class="header__inner container">
-      <a href="/" class="header__brand" aria-label="Inicio">
-        <img id="header-logo" src="" alt="Logo" class="header__logo" />
-        <div class="header__text">
-          <h1 class="header__title" id="header-nombre">Radio</h1>
-          <span class="header__freq" id="header-freq">FM</span>
-        </div>
-      </a>
-
-      <nav class="header__nav" aria-label="Navegación principal">
-        <button class="nav-toggle" aria-expanded="false" aria-controls="menu-principal">
-          <span></span><span></span><span></span>
-          <span class="sr-only">Menú</span>
-        </button>
-        <ul id="menu-principal" class="nav__list">
-          <li><a href="#noticias">Noticias</a></li>
-          <li><a href="#programas">Programas</a></li>
-          <li><a href="#locutores">Locutores</a></li>
-          <li><a href="#contacto">Contacto</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <!-- ============== HERO ============== -->
+  <!-- ============== HERO CON FONDO ============== -->
   <section class="hero">
-    <div class="aurora" aria-hidden="true">
-      <div class="aurora__blob aurora__blob--1"></div>
-      <div class="aurora__blob aurora__blob--2"></div>
-      <div class="aurora__blob aurora__blob--3"></div>
-    </div>
     <div class="container hero__content">
       <div class="hero__badge">📻 Transmitiendo en vivo</div>
       <h2 class="hero__slogan" id="hero-slogan">Slogan</h2>
@@ -103,7 +102,6 @@
   </section>
 
   <main id="main-content">
-    <!-- ============== NOTICIAS ============== -->
     <section id="noticias" class="section">
       <div class="container">
         <header class="section__header">
@@ -116,7 +114,6 @@
       </div>
     </section>
 
-    <!-- ============== PROGRAMAS ============== -->
     <section id="programas" class="section section--alt">
       <div class="container">
         <header class="section__header">
@@ -129,7 +126,6 @@
       </div>
     </section>
 
-    <!-- ============== LOCUTORES ============== -->
     <section id="locutores" class="section">
       <div class="container">
         <header class="section__header">
@@ -145,10 +141,6 @@
 
   <!-- ============== FOOTER ============== -->
   <footer id="contacto" class="site-footer" role="contentinfo">
-    <div class="aurora aurora--footer" aria-hidden="true">
-      <div class="aurora__blob aurora__blob--1"></div>
-      <div class="aurora__blob aurora__blob--2"></div>
-    </div>
     <div class="container footer__inner">
       <div class="footer__brand">
         <img id="footer-logo" src="" alt="Logo" class="footer__logo" />
@@ -165,18 +157,13 @@
       </div>
       <div class="footer__social">
         <h4>Síguenos</h4>
-        <ul class="social__list" id="footer-redes">
-          <!-- Se llena dinámicamente con JS -->
-        </ul>
+        <ul class="social__list" id="footer-redes"></ul>
       </div>
     </div>
     
-    <!-- Alianzas -->
     <div class="footer__alianzas">
       <h4>Nuestras Alianzas</h4>
-      <div class="alianzas__grid" id="footer-alianzas">
-        <!-- Se llena dinámicamente con JS -->
-      </div>
+      <div class="alianzas__grid" id="footer-alianzas"></div>
     </div>
 
     <div class="footer__copy">
@@ -184,9 +171,7 @@
     </div>
   </footer>
 
-  <!-- Librerías -->
   <script src="https://unpkg.com/marked@12.0.0/marked.min.js"></script>
-  <!-- 3. TERCERO: Lógica de la app -->
   <script src="/app.js" defer></script>
 </body>
 </html>
