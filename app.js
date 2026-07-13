@@ -191,6 +191,15 @@ function inicializarReproductor() {
   if (!audioElement || !btnPlay) return;
   audioElement.src = cfg.streamUrl;
   audioElement.volume = 0.8;
+
+    // Mostrar cuando está cargando
+  audioElement.addEventListener('waiting', () => {
+    if (heroPlay) heroPlay.textContent = '⏳ Cargando...';
+  });
+  
+  audioElement.addEventListener('canplay', () => {
+    if (heroPlay && isPlaying) heroPlay.textContent = '⏸ Pausar transmisión';
+  });
   
   function togglePlay() {
     if (isPlaying) {
