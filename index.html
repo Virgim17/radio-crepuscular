@@ -3,28 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Radio Crepuscular 99.5 FM — Somos las voces, voces combativas. Noticias, programas y locutores de la radio comunitaria." />
+  <meta name="description" content="Radio Crepuscular 99.5 FM — Somos las voces, voces combativas." />
   <meta name="theme-color" content="#1A1A2E" />
-
   <title>Radio Crepuscular 99.5 FM ☭ Voces Combativas</title>
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Radio Crepuscular 99.5 FM" />
-  <meta property="og:description" content="☭ ¡Somos Las voces, Voces Combativas! ✊🚩" />
-  <meta property="og:type" content="website" />
 
   <!-- Tipografías -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
-  <!-- Favicon -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📻</text></svg>" />
-
-  <!-- Configuración primero -->
+  <!-- 1. PRIMERO: Configuración -->
   <script src="/config.js"></script>
-
-  <!-- Estilos -->
+  <!-- 2. SEGUNDO: Estilos -->
   <link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
@@ -36,8 +26,8 @@
         <img id="player-logo" src="" alt="Logo" class="player__logo" />
         <div class="player__info">
           <div class="player__name">
-            <span id="player-nombre">Radio Crepuscular</span>
-            <span class="player__freq" id="player-freq">99.5 FM</span>
+            <span id="player-nombre">Radio</span>
+            <span class="player__freq" id="player-freq">FM</span>
           </div>
           <div class="player__status">
             <span class="player__live-dot" aria-hidden="true"></span>
@@ -65,7 +55,7 @@
     </div>
   </div>
 
-  <!-- Elemento de audio (oculto) -->
+  <!-- Elemento de audio (oculto, el src lo pone JS) -->
   <audio id="audio-stream" preload="none"></audio>
 
   <!-- ============== HEADER ============== -->
@@ -74,8 +64,8 @@
       <a href="/" class="header__brand" aria-label="Inicio">
         <img id="header-logo" src="" alt="Logo" class="header__logo" />
         <div class="header__text">
-          <h1 class="header__title" id="header-nombre">Radio Crepuscular</h1>
-          <span class="header__freq" id="header-freq">99.5 FM</span>
+          <h1 class="header__title" id="header-nombre">Radio</h1>
+          <span class="header__freq" id="header-freq">FM</span>
         </div>
       </a>
 
@@ -103,8 +93,8 @@
     </div>
     <div class="container hero__content">
       <div class="hero__badge">📻 Transmitiendo en vivo</div>
-      <h2 class="hero__slogan" id="hero-slogan">☭ ¡Somos Las voces... Voces Combativas! ✊🚩</h2>
-      <p class="hero__sub" id="hero-sub">La radio del pueblo, en el aire y en la lucha.</p>
+      <h2 class="hero__slogan" id="hero-slogan">Slogan</h2>
+      <p class="hero__sub" id="hero-sub">Descripción</p>
       <div class="hero__actions">
         <a href="#noticias" class="btn btn--primary">Ver noticias</a>
         <button id="hero-play" class="btn btn--glass">▶ Escuchar en vivo</button>
@@ -113,7 +103,6 @@
   </section>
 
   <main id="main-content">
-
     <!-- ============== NOTICIAS ============== -->
     <section id="noticias" class="section">
       <div class="container">
@@ -152,7 +141,6 @@
         </div>
       </div>
     </section>
-
   </main>
 
   <!-- ============== FOOTER ============== -->
@@ -164,21 +152,21 @@
     <div class="container footer__inner">
       <div class="footer__brand">
         <img id="footer-logo" src="" alt="Logo" class="footer__logo" />
-        <h3 id="footer-nombre">Radio Crepuscular</h3>
-        <p class="footer__slogan" id="footer-slogan">☭ ¡Somos Las voces... Voces Combativas! ✊🚩</p>
+        <h3 id="footer-nombre">Radio</h3>
+        <p class="footer__slogan" id="footer-slogan">Slogan</p>
       </div>
       <div class="footer__contact">
         <h4>Contacto</h4>
         <ul>
-          <li id="footer-direccion">📍 Caracas, Venezuela</li>
-          <li id="footer-telefono">📞 +58 000 000 0000</li>
-          <li id="footer-email">✉️ contacto@radiocrepuscular.fm</li>
+          <li id="footer-direccion">📍 Dirección</li>
+          <li id="footer-telefono">📞 Teléfono</li>
+          <li id="footer-email">✉️ Email</li>
         </ul>
       </div>
       <div class="footer__social">
         <h4>Síguenos</h4>
         <ul class="social__list" id="footer-redes">
-          <!-- Se llena dinámicamente -->
+          <!-- Se llena dinámicamente con JS -->
         </ul>
       </div>
     </div>
@@ -187,18 +175,18 @@
     <div class="footer__alianzas">
       <h4>Nuestras Alianzas</h4>
       <div class="alianzas__grid" id="footer-alianzas">
-        <!-- Se llena dinámicamente -->
+        <!-- Se llena dinámicamente con JS -->
       </div>
     </div>
+
     <div class="footer__copy">
-      <p> <span id="year"></span> Radio Crepuscular — Hecho con amor por la comunidad.</p>
+      <p>© <span id="year"></span> Radio Crepuscular — Hecho con 🔥 por la comunidad.</p>
     </div>
   </footer>
 
   <!-- Librerías -->
   <script src="https://unpkg.com/marked@12.0.0/marked.min.js"></script>
-
-  <!-- App -->
+  <!-- 3. TERCERO: Lógica de la app -->
   <script src="/app.js" defer></script>
 </body>
 </html>
