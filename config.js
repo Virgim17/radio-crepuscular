@@ -1,41 +1,33 @@
 // =========================================================
 // CONFIGURACIÓN CENTRALIZADA DE RADIO CREPUSCULAR
-// Modifica estos valores para cambiar el sitio sin tocar el código
 // =========================================================
 
 window.RADIO_CONFIG = {
-    // ============================================
-  // 🖤 MODO LUTO
-  // Para activar: pon modoLuto en true
-  // Para fechas automáticas: pon fechaInicio y fechaFin
-  // Si fechaFin ya pasó, se desactiva solo
-  // ============================================
-  modoLuto: {
-    activo: true,  // ← Cambia a false para volver al diseño normal
-    mensaje: 'En memoria de nuestro pueblo. Venezuela está de luto.',
-    // Opcional: fechas automáticas (formato: 'YYYY-MM-DD')
-    // Si pones null, queda activo hasta que cambies "activo" a false
-    fechaInicio: '2026-07-08',
-    fechaFin: '2026-07-15'  // ← Después de esta fecha, vuelve a la normalidad
-  },
-  // Información de la radio
+  // Información básica
   nombre: 'Radio Crepuscular',
   frecuencia: '99.5 FM',
-  slogan: '☭ ¡Somos Las voces... Voces Combativas! ✊🚩',
+  slogan: '☭ ¡Somos Las voces, Voces Combativas! ✊🚩',
   descripcion: 'La radio del pueblo, en el aire y en la lucha.',
-  
-  // Stream de audio (Shoutcast)
-  streamUrl: 'https://uk2freenew.listen2myradio.com/live.mp3?typeportmount=s2_27223_stream_767045788',
   
   // Logo e imágenes
   logo: '/assets/imagenes/logo.png',
   
-  // Contacto
+  // Stream de audio (¡Tu enlace actualizado!)
+  streamUrl: 'https://uk2freenew.listen2myradio.com/live.mp3?typeportmount=s2_27223_stream_808865470',
+  
+  // Modo Luto (cambia 'activo' a true cuando lo necesites)
+  modoLuto: {
+    activo: false, 
+    mensaje: 'En memoria de nuestro pueblo. Venezuela está de luto.',
+    fechaInicio: '2026-07-08',
+    fechaFin: '2026-07-15'
+  },
+
+  // Contacto (esto reemplazará lo que esté en el footer)
   contacto: {
-    direccion: 'Bqto, Venezuela',
+    direccion: 'Caracas, Venezuela',
     telefono: '+58 000 000 0000',
-    email: 'contacto@radiocrepuscular.fm',
-    whatsapp: '+580000000000'
+    email: 'contacto@radiocrepuscular.fm'
   },
   
   // Redes sociales
@@ -47,33 +39,17 @@ window.RADIO_CONFIG = {
     tiktok: 'https://tiktok.com/@radiocrepuscular'
   },
 
-      // Alianzas y partners (logos en el footer)
+  // Alianzas (logos en el footer)
   alianzas: [
     {
-      nombre: 'Alianza 1',
+      nombre: 'Alianza Ejemplo 1',
       logo: '/assets/imagenes/alianza-1.png',
       url: 'https://ejemplo.com'
     },
     {
-      nombre: 'Alianza 2',
+      nombre: 'Alianza Ejemplo 2',
       logo: '/assets/imagenes/alianza-2.png',
       url: 'https://ejemplo2.com'
-    },
-    {
-      nombre: 'Alianza 3',
-      logo: '/assets/imagenes/alianza-3.png',
-      url: 'https://ejemplo3.com'
     }
-  ],
-  
-  // Colores (puedes cambiarlos aquí)
-  colores: {
-    naranja: '#FF6B35',
-    naranjaClaro: '#FF8C42',
-    sol: '#FFD93D',
-    purpura: '#6B2D5C',
-    purpuraProfundo: '#3D1A46',
-    azulNoche: '#1A1A2E',
-    rojo: '#C1121F'
-  }
+  ]
 };
