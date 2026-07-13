@@ -125,7 +125,7 @@ button { font: inherit; cursor: pointer; border: 0; background: none; color: inh
 /* HEADER */
 .site-header {
   background: rgba(15, 15, 30, 0.6); backdrop-filter: blur(15px) saturate(180%); -webkit-backdrop-filter: blur(15px) saturate(180%);
-  border-bottom: 1px solid var(--glass-border); position: sticky; top: 80px; z-index: 100;
+  border-bottom: 1px solid var(--glass-border); position: relative; top: 80px; z-index: 100;
 }
 .header__inner { display: flex; align-items: center; justify-content: space-between; padding-block: 1rem; gap: 1rem; }
 .header__brand { display: flex; align-items: center; gap: 0.75rem; color: var(--texto); }
