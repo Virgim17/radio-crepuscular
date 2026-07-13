@@ -149,8 +149,35 @@ button { font: inherit; cursor: pointer; border: 0; background: none; color: inh
 .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
 /* HERO */
-.hero { position: relative; padding: clamp(3rem, 10vw, 6rem) 0; text-align: center; overflow: hidden; background: linear-gradient(180deg, var(--crep-azul-profundo) 0%, var(--crep-azul-noche) 100%); }
-.hero__content { position: relative; z-index: 1; }
+.hero {
+  position: relative;
+  padding: clamp(4rem, 12vw, 8rem) 0; /* Un poco más de espacio vertical */
+  text-align: center;
+  overflow: hidden;
+  
+  /* AQUÍ ESTÁ LA MAGIA: Imagen + Capa oscura encima */
+  background-image: 
+    linear-gradient(to bottom, rgba(15, 15, 30, 0.7), rgba(15, 15, 30, 0.85)), /* La "gafa de sol" */
+    url('/assets/imagenes/fondo-hero.jpg'); /* Tu imagen */
+    
+  background-size: cover;      /* La imagen cubre todo el espacio */
+  background-position: center; /* La imagen se centra */
+  background-attachment: fixed; /* Efecto parallax: la imagen se queda quieta al hacer scroll */
+}
+
+/* Opcional: Si quieres un desenfoque real (blur) a la imagen de fondo */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(3px); /* Desenfoque sutil */
+  z-index: 0;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1; /* Asegura que el texto esté POR ENCIMA del desenfoque */
+}
 .hero__badge { display: inline-block; padding: 0.4rem 1rem; background: var(--glass-bg); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid var(--glass-border); border-radius: 999px; font-size: 0.85rem; color: var(--crep-naranja-claro); letter-spacing: 1px; margin-bottom: 1.5rem; font-weight: 500; }
 .hero__slogan {
   font-family: var(--font-display); font-size: clamp(1.8rem, 5vw, 3.5rem); letter-spacing: 2px; line-height: 1.1;
