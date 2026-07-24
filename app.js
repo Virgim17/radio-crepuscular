@@ -191,15 +191,6 @@ function inicializarReproductor() {
   if (!audioElement || !btnPlay) return;
   audioElement.src = cfg.streamUrl;
   audioElement.volume = 0.8;
-
-    // Mostrar cuando está cargando
-  audioElement.addEventListener('waiting', () => {
-    if (heroPlay) heroPlay.textContent = '⏳ Cargando...';
-  });
-  
-  audioElement.addEventListener('canplay', () => {
-    if (heroPlay && isPlaying) heroPlay.textContent = '⏸ Pausar transmisión';
-  });
   
   function togglePlay() {
     if (isPlaying) {
@@ -209,33 +200,12 @@ function inicializarReproductor() {
       btnPlay.setAttribute('aria-label', 'Reproducir');
       if (heroPlay) heroPlay.textContent = '▶ Escuchar en vivo';
     } else {
-  let reintentos = 0;
-  const maxReintentos = 3;
-
-  audioElement.addEventListener('error', () => {
-    console.error('Error en el stream, intento:', reintentos + 1);
-    
-    if (reintentos < maxReintentos) {
-      reintentos++;
-      setTimeout(() => {
-        console.log('Reintentando conexión...');
-        audioElement.load();
-        if (isPlaying) audioElement.play().catch(() => {});
-      }, 3000); // Espera 3 segundos antes de reintentar
-    } else {
-      console.error('No se pudo conectar después de 3 intentos');
-      isPlaying = false;
-      btnPlay.classList.remove('playing');
-      iconPlay.innerHTML = '<path d="M8 5v14l11-7z"/>';
-      if (heroPlay) heroPlay.textContent = '⚠️ Error de conexión';
-    }
-  });
-
-  // Resetear reintentos cuando se conecta bien
-  audioElement.addEventListener('playing', () => {
-    reintentos = 0;
-    if (heroPlay) heroPlay.textContent = '⏸ Pausar transmisión';
-  });
+      audioElement.play().catch(err => { console.error('Error al reproducir:', err); alert('No se pudo conectar con el stream.'); });
+      isPlaying = true;
+      btnPlay.classList.add('playing');
+      iconPlay.innerHTML = '<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>';
+      btnPlay.setAttribute('aria-label', 'Pausar');
+      if (heroPlay) heroPlay.textContent = '⏸ Pausar transmisión';
     }
   }
   btnPlay.addEventListener('click', togglePlay);
