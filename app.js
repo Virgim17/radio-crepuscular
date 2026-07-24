@@ -1,3 +1,7 @@
+// =========================================================
+// RADIO CREPUSCULAR 99.5 FM — App principal (con reintentos)
+// =========================================================
+
 document.addEventListener('DOMContentLoaded', () => { iniciar(); });
 
 async function iniciar() {
@@ -20,6 +24,9 @@ async function iniciar() {
   }
 }
 
+// =========================================================
+// CONFIGURACIÓN
+// =========================================================
 function aplicarConfiguracion() {
   const cfg = window.RADIO_CONFIG;
   if (!cfg) { console.error('No se encontró RADIO_CONFIG. Revisa config.js'); return; }
@@ -39,7 +46,7 @@ function aplicarConfiguracion() {
   setText('footer-nombre', cfg.nombre); setText('footer-slogan', cfg.slogan);
   setText('footer-direccion', '📍 ' + cfg.contacto.direccion);
   setText('footer-telefono', '📞 ' + cfg.contacto.telefono);
-  setText('footer-email', '✉️ ' + cfg.contacto.email);
+  setText('footer-email', '️ ' + cfg.contacto.email);
   setSrc('footer-logo', cfg.logo); setAlt('footer-logo', cfg.nombre);
   
   const redesContainer = document.getElementById('footer-redes');
@@ -66,6 +73,9 @@ function aplicarConfiguracion() {
   }
 }
 
+// =========================================================
+// MODO LUTO
+// =========================================================
 function aplicarModoLuto() {
   const cfg = window.RADIO_CONFIG;
   if (!cfg || !cfg.modoLuto) return;
@@ -84,6 +94,9 @@ function aplicarModoLuto() {
   }
 }
 
+// =========================================================
+// CARGAR CONTENIDO
+// =========================================================
 async function cargarJSON(url) { const r = await fetch(url); if (!r.ok) throw new Error(`No se pudo cargar ${url}`); return await r.json(); }
 async function cargarTexto(url) { const r = await fetch(url); if (!r.ok) throw new Error(`No se pudo cargar ${url}`); return await r.text(); }
 
@@ -175,12 +188,18 @@ function activarMenuMovil() {
   });
 }
 
+// =========================================================
+// 🎙️ REPRODUCTOR CON REINTENTOS Y ESTADOS DE CARGA
+// =========================================================
 let audioElement = null;
 let isPlaying = false;
+let reintentos = 0;
+const MAX_REINTENTOS = 3;
 
 function inicializarReproductor() {
   const cfg = window.RADIO_CONFIG;
   if (!cfg) return;
+  
   audioElement = document.getElementById('audio-stream');
   const btnPlay = document.getElementById('btn-play');
   const btnMute = document.getElementById('btn-mute');
@@ -189,28 +208,98 @@ function inicializarReproductor() {
   const heroPlay = document.getElementById('hero-play');
   
   if (!audioElement || !btnPlay) return;
+  
+  // Configurar el stream
   audioElement.src = cfg.streamUrl;
   audioElement.volume = 0.8;
+  audioElement.crossOrigin = 'anonymous'; // Importante para streams externos
   
+  // --- ESTADOS DE CARGA ---
+  audioElement.addEventListener('waiting', () => {
+    console.log('⏳ Buffering...');
+    if (heroPlay) heroPlay.textContent = '⏳ Cargando...';
+  });
+  
+  audioElement.addEventListener('canplay', () => {
+    console.log('✅ Listo para reproducir');
+    if (heroPlay && isPlaying) heroPlay.textContent = '⏸ Pausar transmisión';
+  });
+  
+  audioElement.addEventListener('playing', () => {
+    console.log('🔊 Reproduciendo');
+    reintentos = 0; // Resetear contador al reproducir bien
+    if (heroPlay) heroPlay.textContent = '⏸ Pausar transmisión';
+  });
+  
+  // --- MANEJO DE ERRORES CON REINTENTOS ---
+  audioElement.addEventListener('error', (e) => {
+    console.error('❌ Error en el stream:', e);
+    
+    if (reintentos < MAX_REINTENTOS) {
+      reintentos++;
+      console.log(`🔄 Reintentando (${reintentos}/${MAX_REINTENTOS})...`);
+      
+      if (heroPlay) heroPlay.textContent = `🔄 Reconectando... (${reintentos})`;
+      
+      setTimeout(() => {
+        try {
+          audioElement.load(); // Recargar el stream
+          if (isPlaying) {
+            audioElement.play().catch(err => {
+              console.error('Error al reintentar play:', err);
+            });
+          }
+        } catch (err) {
+          console.error('Error en el reintent:', err);
+        }
+      }, 3000); // Esperar 3 segundos entre intentos
+    } else {
+      console.error('❌ No se pudo conectar después de 3 intentos');
+      isPlaying = false;
+      btnPlay.classList.remove('playing');
+      iconPlay.innerHTML = '<path d="M8 5v14l11-7z"/>';
+      if (heroPlay) heroPlay.textContent = '️ Sin señal';
+    }
+  });
+  
+  // --- CONTROLES ---
   function togglePlay() {
     if (isPlaying) {
-      audioElement.pause(); isPlaying = false;
+      audioElement.pause();
+      isPlaying = false;
       btnPlay.classList.remove('playing');
       iconPlay.innerHTML = '<path d="M8 5v14l11-7z"/>';
       btnPlay.setAttribute('aria-label', 'Reproducir');
       if (heroPlay) heroPlay.textContent = '▶ Escuchar en vivo';
     } else {
-      audioElement.play().catch(err => { console.error('Error al reproducir:', err); alert('No se pudo conectar con el stream.'); });
+      // Resetear reintentos al hacer play manual
+      reintentos = 0;
+      audioElement.load(); // Recargar para obtener stream fresco
+      
+      audioElement.play().catch(err => {
+        console.error('Error al reproducir:', err);
+        if (heroPlay) heroPlay.textContent = '⚠️ Error al conectar';
+      });
+      
       isPlaying = true;
       btnPlay.classList.add('playing');
       iconPlay.innerHTML = '<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>';
       btnPlay.setAttribute('aria-label', 'Pausar');
-      if (heroPlay) heroPlay.textContent = '⏸ Pausar transmisión';
+      if (heroPlay) heroPlay.textContent = '⏳ Conectando...';
     }
   }
+  
   btnPlay.addEventListener('click', togglePlay);
   if (heroPlay) heroPlay.addEventListener('click', (e) => { e.preventDefault(); togglePlay(); });
-  btnMute.addEventListener('click', () => { audioElement.muted = !audioElement.muted; volumeSlider.value = audioElement.muted ? 0 : audioElement.volume * 100; });
-  volumeSlider.addEventListener('input', (e) => { const v = e.target.value / 100; audioElement.volume = v; audioElement.muted = v === 0; });
-  audioElement.addEventListener('error', () => { isPlaying = false; btnPlay.classList.remove('playing'); iconPlay.innerHTML = '<path d="M8 5v14l11-7z"/>'; });
+  
+  btnMute.addEventListener('click', () => {
+    audioElement.muted = !audioElement.muted;
+    volumeSlider.value = audioElement.muted ? 0 : audioElement.volume * 100;
+  });
+  
+  volumeSlider.addEventListener('input', (e) => {
+    const v = e.target.value / 100;
+    audioElement.volume = v;
+    audioElement.muted = v === 0;
+  });
 }
