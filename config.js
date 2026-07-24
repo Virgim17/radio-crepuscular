@@ -50,6 +50,16 @@ window.RADIO_CONFIG = {
       nombre: 'Alianza Ejemplo 2',
       logo: '/assets/imagenes/alianza-2.png',
       url: 'https://ejemplo2.com'
+    },
+    {
+      nombre: 'Alianza Ejemplo 3',
+      logo: '/assets/imagenes/alianza-3.png',
+      url: 'https://ejemplo.com'
+    },
+    {
+      nombre: 'Alianza Ejemplo 4',
+      logo: '/assets/imagenes/alianza-4.png',
+      url: 'https://ejemplo2.com'
     }
   ]
 };
