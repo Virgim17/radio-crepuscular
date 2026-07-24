@@ -1,18 +1,14 @@
 // =========================================================
 // GENERADOR AUTOMÁTICO DE MANIFEST.JSON
-// Lee todos los archivos .md de /content/ y crea manifest.json
+// Lee todos los archivos .md de /content/ y crea manifest.json en la raíz
 // =========================================================
 
 const fs = require('fs');
 const path = require('path');
 
+// Rutas corregidas: ahora guarda en la raíz del repo, no en /public
 const CONTENT_DIR = path.join(__dirname, '..', 'content');
-const OUTPUT_FILE = path.join(__dirname, '..', 'public', 'manifest.json');
-
-// Asegurar que existe la carpeta public
-if (!fs.existsSync(path.join(__dirname, '..', 'public'))) {
-  fs.mkdirSync(path.join(__dirname, '..', 'public'));
-}
+const OUTPUT_FILE = path.join(__dirname, '..', 'manifest.json'); 
 
 const manifest = {
   noticias: [],
@@ -42,7 +38,7 @@ manifest.noticias = leerSeccion('noticias');
 manifest.locutores = leerSeccion('locutores');
 manifest.programas = leerSeccion('programas');
 
-// Guardar manifest.json
+// Guardar manifest.json en la raíz
 fs.writeFileSync(OUTPUT_FILE, JSON.stringify(manifest, null, 2));
 console.log(`\n🎉 manifest.json generado con éxito en: ${OUTPUT_FILE}`);
 console.log(`   - Noticias: ${manifest.noticias.length}`);
