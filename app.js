@@ -1,5 +1,5 @@
 // =========================================================
-// RADIO CREPUSCULAR 99.5 FM — App principal (con reintentos)
+// RADIO CREPUSCULAR 99.5 FM — Optimizado para mal internet
 // =========================================================
 
 document.addEventListener('DOMContentLoaded', () => { iniciar(); });
@@ -45,8 +45,8 @@ function aplicarConfiguracion() {
   
   setText('footer-nombre', cfg.nombre); setText('footer-slogan', cfg.slogan);
   setText('footer-direccion', '📍 ' + cfg.contacto.direccion);
-  setText('footer-telefono', '📞 ' + cfg.contacto.telefono);
-  setText('footer-email', '️ ' + cfg.contacto.email);
+  setText('footer-telefono', ' ' + cfg.contacto.telefono);
+  setText('footer-email', '✉️ ' + cfg.contacto.email);
   setSrc('footer-logo', cfg.logo); setAlt('footer-logo', cfg.nombre);
   
   const redesContainer = document.getElementById('footer-redes');
@@ -189,12 +189,14 @@ function activarMenuMovil() {
 }
 
 // =========================================================
-// 🎙️ REPRODUCTOR CON REINTENTOS Y ESTADOS DE CARGA
+// 🎙️ REPRODUCTOR OPTIMIZADO PARA MAL INTERNET
 // =========================================================
 let audioElement = null;
 let isPlaying = false;
 let reintentos = 0;
-const MAX_REINTENTOS = 3;
+const MAX_REINTENTOS = 5; // Más intentos para mal internet
+let playTimeout = null;
+let bufferingTimer = null;
 
 function inicializarReproductor() {
   const cfg = window.RADIO_CONFIG;
@@ -209,57 +211,102 @@ function inicializarReproductor() {
   
   if (!audioElement || !btnPlay) return;
   
-  // Configurar el stream
+  // === CLAVE PARA MAL INTERNET ===
   audioElement.src = cfg.streamUrl;
   audioElement.volume = 0.8;
-  audioElement.crossOrigin = 'anonymous'; // Importante para streams externos
+  audioElement.crossOrigin = 'anonymous';
+  audioElement.preload = 'auto'; // Precargar en vez de "none"
   
-  // --- ESTADOS DE CARGA ---
+  // --- ESTADO: Buffering (cargando) ---
   audioElement.addEventListener('waiting', () => {
-    console.log('⏳ Buffering...');
+    console.log('⏳ Buffering... esperando más datos');
     if (heroPlay) heroPlay.textContent = '⏳ Cargando...';
+    
+    // Si el buffering dura más de 15 segundos, mostrar aviso
+    clearTimeout(bufferingTimer);
+    bufferingTimer = setTimeout(() => {
+      if (heroPlay && isPlaying) heroPlay.textContent = '📡 Conexión lenta...';
+    }, 15000);
   });
   
+  // --- ESTADO: Tiene suficiente buffer para reproducir ---
   audioElement.addEventListener('canplay', () => {
-    console.log('✅ Listo para reproducir');
-    if (heroPlay && isPlaying) heroPlay.textContent = '⏸ Pausar transmisión';
+    console.log('✅ Tiene buffer suficiente');
+    clearTimeout(bufferingTimer);
   });
   
+  // --- ESTADO: Reproduciendo bien ---
   audioElement.addEventListener('playing', () => {
-    console.log('🔊 Reproduciendo');
-    reintentos = 0; // Resetear contador al reproducir bien
+    console.log(' Reproduciendo');
+    clearTimeout(bufferingTimer);
+    reintentos = 0;
+    clearTimeout(playTimeout);
     if (heroPlay) heroPlay.textContent = '⏸ Pausar transmisión';
   });
   
-  // --- MANEJO DE ERRORES CON REINTENTOS ---
+  // --- ESTADO: Se pausó solo (por buffering) → auto-reanudar ---
+  audioElement.addEventListener('stalled', () => {
+    console.log('⚠️ Stream stallado (se detuvo solo)');
+    if (heroPlay && isPlaying) heroPlay.textContent = '🔄 Reconectando...';
+    
+    // Intentar reanudar después de 2 segundos
+    setTimeout(() => {
+      if (isPlaying && audioElement.paused) {
+        console.log('🔄 Intentando reanudar...');
+        audioElement.play().catch(() => {});
+      }
+    }, 2000);
+  });
+  
+  // --- ERRORES CON REINTENTOS PACIENTES ---
   audioElement.addEventListener('error', (e) => {
-    console.error('❌ Error en el stream:', e);
+    console.error('❌ Error:', e);
+    clearTimeout(bufferingTimer);
+    clearTimeout(playTimeout);
     
     if (reintentos < MAX_REINTENTOS) {
       reintentos++;
-      console.log(`🔄 Reintentando (${reintentos}/${MAX_REINTENTOS})...`);
+      // Backoff exponencial: 3s, 6s, 12s, 24s, 48s
+      const espera = 3000 * Math.pow(2, reintentos - 1);
+      console.log(`🔄 Reintento ${reintentos}/${MAX_REINTENTOS} en ${espera/1000}s`);
       
       if (heroPlay) heroPlay.textContent = `🔄 Reconectando... (${reintentos})`;
       
       setTimeout(() => {
         try {
-          audioElement.load(); // Recargar el stream
+          audioElement.load();
           if (isPlaying) {
-            audioElement.play().catch(err => {
-              console.error('Error al reintentar play:', err);
-            });
+            audioElement.play().catch(err => console.error('Error en reintento:', err));
           }
         } catch (err) {
-          console.error('Error en el reintent:', err);
+          console.error('Error en reintento:', err);
         }
-      }, 3000); // Esperar 3 segundos entre intentos
+      }, espera);
     } else {
-      console.error('❌ No se pudo conectar después de 3 intentos');
+      console.error('❌ Agotados los reintentos');
       isPlaying = false;
       btnPlay.classList.remove('playing');
       iconPlay.innerHTML = '<path d="M8 5v14l11-7z"/>';
-      if (heroPlay) heroPlay.textContent = '️ Sin señal';
+      if (heroPlay) heroPlay.textContent = '⚠️ Sin conexión';
     }
+  });
+  
+  // --- RECONEXIÓN AUTOMÁTICA CUANDO VUELVE EL INTERNET ---
+  window.addEventListener('online', () => {
+    console.log('🌐 Internet volvió');
+    if (isPlaying && audioElement.paused) {
+      if (heroPlay) heroPlay.textContent = '🌐 Reconectando...';
+      reintentos = 0;
+      audioElement.load();
+      setTimeout(() => {
+        audioElement.play().catch(() => {});
+      }, 1000);
+    }
+  });
+  
+  window.addEventListener('offline', () => {
+    console.log('📴 Internet se fue');
+    if (heroPlay && isPlaying) heroPlay.textContent = '📴 Sin internet';
   });
   
   // --- CONTROLES ---
@@ -271,13 +318,28 @@ function inicializarReproductor() {
       iconPlay.innerHTML = '<path d="M8 5v14l11-7z"/>';
       btnPlay.setAttribute('aria-label', 'Reproducir');
       if (heroPlay) heroPlay.textContent = '▶ Escuchar en vivo';
+      clearTimeout(playTimeout);
+      clearTimeout(bufferingTimer);
     } else {
-      // Resetear reintentos al hacer play manual
       reintentos = 0;
-      audioElement.load(); // Recargar para obtener stream fresco
+      audioElement.load();
       
-      audioElement.play().catch(err => {
+      // Timeout: si no empieza en 10s, reintentar
+      clearTimeout(playTimeout);
+      playTimeout = setTimeout(() => {
+        if (isPlaying && !audioElement.paused === false) {
+          console.log('⏱️ Timeout de play, reintentando...');
+          if (heroPlay) heroPlay.textContent = '🔄 Reintentando...';
+          audioElement.load();
+          audioElement.play().catch(() => {});
+        }
+      }, 10000);
+      
+      audioElement.play().then(() => {
+        clearTimeout(playTimeout);
+      }).catch(err => {
         console.error('Error al reproducir:', err);
+        clearTimeout(playTimeout);
         if (heroPlay) heroPlay.textContent = '⚠️ Error al conectar';
       });
       
