@@ -1,0 +1,82 @@
+# PANEL DEL OPERADOR: solo noticias, programas, locutores y alianzas.
+backend:
+  name: github
+  repo: Virgim17/radio-crepuscular
+  branch: main
+  base_url: https://decap-oauth-proxy.virgim17.workers.dev
+
+site_url: https://crepuscularfm.com.ve
+display_url: https://crepuscularfm.com.ve
+logo_url: https://crepuscularfm.com.ve/assets/imagenes/logo.png
+locale: es
+
+media_folder: assets/imagenes/subidas
+public_folder: /assets/imagenes/subidas
+
+# Las ediciones del Operador quedan "en revisión" hasta que el Administrador las apruebe.
+publish_mode: editorial_workflow
+
+collections:
+  - name: "noticias"
+    label: "Noticias"
+    label_singular: "Noticia"
+    folder: "content/noticias"
+    extension: "json"
+    format: "json"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    summary: "{{titulo}}"
+    sortable_fields: ["fecha", "titulo"]
+    fields:
+      - {label: "Título", name: "titulo", widget: "string"}
+      - {label: "Fecha y hora", name: "fecha", widget: "datetime", date_format: "DD/MM/YYYY", time_format: "HH:mm", format: "YYYY-MM-DDTHH:mm:ss", picker_utc: false}
+      - {label: "Foto de la noticia", name: "imagen", widget: "image", choose_url: false}
+      - {label: "Texto (deja una línea en blanco entre párrafos)", name: "cuerpo", widget: "text"}
+
+  - name: "programas"
+    label: "Programas"
+    label_singular: "Programa"
+    folder: "content/programas"
+    extension: "json"
+    format: "json"
+    create: true
+    slug: "{{slug}}"
+    summary: "{{nombre}} — {{horario}}"
+    fields:
+      - {label: "Nombre del programa", name: "nombre", widget: "string"}
+      - {label: "Horario (ej: 05:00 a.m. – 09:00 a.m.)", name: "horario", widget: "string"}
+      - {label: "Días (ej: Lunes a viernes)", name: "dias", widget: "string"}
+      - {label: "Descripción", name: "descripcion", widget: "text"}
+      - {label: "Foto del programa", name: "imagen", widget: "image", choose_url: false}
+      - {label: "Orden de aparición (1 sale primero)", name: "orden", widget: "number", value_type: "int", min: 1, default: 50, required: false}
+
+  - name: "locutores"
+    label: "Locutores"
+    label_singular: "Locutor"
+    folder: "content/locutores"
+    extension: "json"
+    format: "json"
+    create: true
+    slug: "{{slug}}"
+    summary: "{{nombre}} — {{programa}}"
+    fields:
+      - {label: "Nombre", name: "nombre", widget: "string"}
+      - {label: "Foto", name: "foto", widget: "image", choose_url: false}
+      - {label: "Programa que conduce", name: "programa", widget: "string"}
+      - {label: "Biografía", name: "bio", widget: "text"}
+      - {label: "Orden de aparición (1 sale primero)", name: "orden", widget: "number", value_type: "int", min: 1, default: 50, required: false}
+
+  - name: "alianzas"
+    label: "Alianzas"
+    label_singular: "Alianza"
+    folder: "content/alianzas"
+    extension: "json"
+    format: "json"
+    create: true
+    slug: "{{slug}}"
+    summary: "{{nombre}}"
+    fields:
+      - {label: "Nombre del aliado", name: "nombre", widget: "string"}
+      - {label: "Logo o foto del aliado", name: "logo", widget: "image", choose_url: false}
+      - {label: "Página web del aliado (opcional)", name: "url", widget: "string", required: false}
+      - {label: "Orden de aparición (1 sale primero)", name: "orden", widget: "number", value_type: "int", min: 1, default: 50, required: false}

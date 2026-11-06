@@ -1,0 +1,149 @@
+{
+  "sitio": {
+    "nombre": "Radio Crepuscular",
+    "frecuencia": "99.5 FM",
+    "slogan": "Somos las voces… voces combativas.",
+    "descripcion": "Desde Barquisimeto, la radio que despierta con el amanecer y acompaña al pueblo hasta el último destello de la tarde.",
+    "stream_url": "https://sapircast.caster.fm:17635/drrua?token=464fd321efadc8d98f3027b5e94ad747",
+    "logo": "/assets/imagenes/logo.png",
+    "fondo": "/assets/imagenes/fondo-hero.jpg",
+    "contacto": {
+      "direccion": "Barquisimeto, estado Lara, Venezuela",
+      "telefono": "+58 000 000 0000",
+      "email": "contacto@crepuscularfm.com.ve"
+    },
+    "redes": [
+      {
+        "red": "facebook",
+        "url": "https://facebook.com/radiocrepuscular"
+      },
+      {
+        "red": "instagram",
+        "url": "https://instagram.com/radiocrepuscular"
+      },
+      {
+        "red": "twitter",
+        "url": "https://twitter.com/radiocrepuscular"
+      },
+      {
+        "red": "youtube",
+        "url": "https://youtube.com/@radiocrepuscular"
+      },
+      {
+        "red": "tiktok",
+        "url": "https://tiktok.com/@radiocrepuscular"
+      }
+    ],
+    "textos": {
+      "noticias": "Lo que pasa, contado con voz propia.",
+      "programas": "Tu día, de amanecer a anochecer.",
+      "voces": "Las personas detrás del micrófono.",
+      "alianzas": "Nuestras Alianzas",
+      "contactos": "Escríbenos, llámanos o encuéntranos en redes."
+    },
+    "luto": {
+      "activo": false,
+      "mensaje": "Venezuela está de luto. Radio Crepuscular se une al duelo."
+    }
+  },
+  "noticias": [
+    {
+      "titulo": "Delcy Rodríguez: la Fanb es del pueblo venezolano y no una élite",
+      "fecha": "2026-07-24T11:20:00-04:00",
+      "imagen": "https://ultimasnoticias.com.ve/wp-content/uploads/2026/07/Delcy-Rodriguez-GHP-y-DGCIM-696x464.jpg",
+      "cuerpo": "La presidenta encargada Delcy Rodríguez afirmó este jueves que la Fuerza Armada Nacional Bolivariana (Fanb) es del pueblo venezolano y no una élite, que se movilizó para atender la emergencia provocada por los sismos del pasado 24 de junio.\n\nDurante el acto de ascensos del personal que integra la Guardia de Honor Presidencial y la Dirección de General Contrainteligencia Militar (Dgcim), destacó que la Fanb «nace del pueblo, viene del pueblo, es del pueblo».\n\n«La Fuerza Armada Nacional Bolivariana no es la élite de Venezuela, es el pueblo de Venezuela con un uniforme digno que heredó de su Libertador Simón Bolívar y que ese uniforme los hace tener una ética y una moral distintas cuando se acerca a nuestro pueblo. Yo lo veo en los campamentos transitorios, cuando hay un funcionario de nuestra Fuerza Armada, de la Dirección General de Contrainteligencia Militar, ayudando en los campamentos, yo veo el agradecimiento», aseveró.\n\nTambién aseguró que la Fanb está desplegada en el estado La Guaira, de extremo a extremo, desde Caraballeda hasta Catia la Mar, así como la Guardia de Honor Presidencial y la Dgcim, acompañando a las familias afectadas.\n\nAdemás, la mandataria encargada expresó que este acto de ascensos es en reconocimiento «al esfuerzo, al mérito, a la responsabilidad, a la disciplina, a la preparación, al profesionalismo. Cuando nuestro gran Libertador Simón Bolívar concibió la Guardia de Honor Presidencial, y por ello su nombre, Guardia de Honor, lo hizo pensando no solamente en su seguridad, sino que lo hizo pensando en la estabilidad del Ejército».\n\nAfirmó que asume la Guardia de Honor Presidencial no solo como el resguardo de las altas autoridades del Estado venezolano, sino como «guardianes de la estabilidad política, de la paz, de la tranquilidad de nuestra patria. Tienen un esfuerzo mayor y una responsabilidad mayor que el honor de Venezuela».\n\nRecordó que el camino de Bolívar no fue un camino de rosas, sino lleno de espinas, que llevó a la independencia y a la libertad. «Hemos tenido reveses, y este año tuvimos un revés el 3 de enero, pero también tuvimos los hechos trágicos naturales del doble terremoto del 24 de junio, día de nuestro Ejército», dijo.\n\n«Ahí no era una celebración por el Día del Ejército, sino que se fue nuestra Fuerza Armada Nacional Bolivariana; a los minutos, se desplegó en los sitios del desastre natural. El ascenso de ustedes hoy no es un ascenso de oficina, no es un ascenso de uniforme planchado de gala. Es un ascenso de estar en el terreno acompañando al pueblo de Venezuela en estos momentos dolorosos de las familias que han perdido a seres queridos», resaltó.\n\nEn el acto fueron ascendidos 894 oficiales y tropas profesionales, de los cuales 636 son hombres y mujeres que pertenecen a la Guardia de Honor Presidencial y 258 a la Dgcim. Los ascensos fueron al grado de coronel, capitán de navío, teniente coronel y capitán de fragata.\n\nAsimismo, fue otorgada la condecoración Héroes de Venezuela al estandarte de la Guardia de Honor Presidencial por su destacada participación durante la recepción, acompañamiento y atención de las delegaciones internacionales de rescatistas, así como el recibimiento y verificación de la ayuda humanitaria proveniente de 43 países tras los sismos del 24 de junio de 2026.\n\nEn la actividad participaron el ministro para la Defensa, Gustavo González López; el comandante de la Guardia de Honor Presidencial, Henry Antonio Navas Rumbos; y el director general de Contrainteligencia Militar, Germán Gómez Lárez.",
+      "id": "2026-07-24-delcy-rodriguez-la-fanb-es-del-pueblo-venezolano-y"
+    },
+    {
+      "titulo": "Instalan el II encuentro con ONG internacionales tras sismos",
+      "fecha": "2026-07-24T11:22:00-04:00",
+      "imagen": "https://ultimasnoticias.com.ve/wp-content/uploads/2026/07/WhatsApp-Image-2026-07-23-at-12.33.31-PM-696x427.jpeg",
+      "cuerpo": "El ministro para Relaciones Exteriores y Comercio Internacional, Félix Plasencia González, encabezó el acto de instalación del II Encuentro con ONG Internacionales y el Sistema de Naciones Unidas para consolidar la cooperación humanitaria dirigida a las zonas afectadas por el reciente doblete sísmico.\n\nLa jornada, realizada en el Salón “Simón Bolívar” de la Cancillería, contó con la presencia de los viceministros para Europa y América del Norte, Oliver Blanco, y para Temas Multilaterales, Alexander Yánez.\n\nDurante la actividad, las plataformas de coordinación humanitaria expusieron un balance de los despliegues territoriales y ratificaron la voluntad de mantener una asistencia multisectorial enfocada en la atención inmediata y las fases de recuperación local.\n\nEn representación del Ejecutivo, el canciller Plasencia transmitió el agradecimiento de la presidenta (E) Delcy Rodríguez, por el acompañamiento internacional recibido ante la coyuntura. Asimismo, el coordinador residente de la ONU en Venezuela, Gianluca Rampolla, junto a representantes de la Oficina de las Naciones Unidas para la Coordinación de Asuntos Humanitarios (Ocha) y del Despacho de la Vicepresidencia Social, valoraron la articulación fluida con el Gobierno nacional para salvaguardar vidas y sentar las bases de la reconstrucción en los estados golpeados por los sismos.",
+      "id": "2026-07-24-instalan-el-ii-encuentro-con-ong-internacionales-t"
+    },
+    {
+      "titulo": "Paravisini destaca que el sector privado se suma al renacer del país",
+      "fecha": "2026-07-24T11:21:00-04:00",
+      "imagen": "https://ultimasnoticias.com.ve/wp-content/uploads/2026/07/invitado-2-696x464.jpg",
+      "cuerpo": "En una entrevista con el canal del Estado, el experto petrolero David Paravisini destacó este jueves la participación del sector privado en el renacer del país al contribuir con el proceso de atención integral de la población tras el doblete sísmico del pasado 24 de junio.\n\nEn este sentido, Paravisini señaló que las industrias están en colaboración activa con la dotación de vehículos y costos de servicio accesibles en materia gasífera para la población. “Hemos visto que hay sectores privados que se están dando a la tarea, sobre todo en el sector del gas vehicular, en el transporte público y privado en líneas urbanas, en el uso de gas vehicular, el gas domiciliario y el gas en las viviendas”, expresó.\n\nDe igual manera, resaltó el esfuerzo del Gobierno bolivariano encabezado por la presidenta (E) Delcy Rodríguez, quien junto a su equipo de trabajo ha desarrollado líneas de acción estratégicas para la atención del pueblo.\n\nFinalmente, Paravisini resaltó el ejemplo que ha dado el gobernador del estado La Guaira, José Alejandro Terán, al incentivar un despertar de conciencia social en torno a la reconstrucción del litoral central.",
+      "id": "2026-07-24-paravisini-destaca-que-el-sector-privado-se-suma-a"
+    }
+  ],
+  "programas": [
+    {
+      "nombre": "Amanecer Crepuscular",
+      "horario": "05:00 a.m. – 09:00 a.m.",
+      "dias": "Lunes a viernes",
+      "descripcion": "Programa de ejemplo: música, información y buenos días desde Barquisimeto. Edítalo desde el panel.",
+      "imagen": "/assets/imagenes/fondo-hero.jpg",
+      "orden": 1,
+      "id": "amanecer-crepuscular"
+    },
+    {
+      "nombre": "Noche Crepuscular",
+      "horario": "08:00 p.m. – 10:00 p.m.",
+      "dias": "Sábados",
+      "descripcion": "Programa de ejemplo: música y conversación para cerrar el día.",
+      "imagen": "/assets/imagenes/fondo-hero.jpg",
+      "orden": 3,
+      "id": "noche-crepuscular"
+    },
+    {
+      "nombre": "Voces de la Tarde",
+      "horario": "03:00 p.m. – 06:00 p.m.",
+      "dias": "Lunes a viernes",
+      "descripcion": "Programa de ejemplo: entrevistas, comunidad y opinión para acompañar la tarde.",
+      "imagen": "/assets/imagenes/fondo-hero.jpg",
+      "orden": 2,
+      "id": "voces-de-la-tarde"
+    }
+  ],
+  "locutores": [
+    {
+      "nombre": "Locutor de ejemplo 1",
+      "programa": "Amanecer Crepuscular",
+      "bio": "Biografía de ejemplo. Reemplázala con la historia real del locutor.",
+      "foto": "/assets/imagenes/locutor-ejemplo-1.jpg",
+      "orden": 1,
+      "id": "locutor-de-ejemplo-1"
+    },
+    {
+      "nombre": "Locutora de ejemplo 2",
+      "programa": "Voces de la Tarde",
+      "bio": "Biografía de ejemplo. Reemplázala con la historia real de la locutora.",
+      "foto": "/assets/imagenes/locutor-ejemplo-2.jpg",
+      "orden": 2,
+      "id": "locutora-de-ejemplo-2"
+    }
+  ],
+  "alianzas": [
+    {
+      "nombre": "Alianza de ejemplo 1",
+      "logo": "/assets/imagenes/alianza-1.png",
+      "url": "https://ejemplo.com",
+      "orden": 1,
+      "id": "alianza-ejemplo-1"
+    },
+    {
+      "nombre": "Alianza de ejemplo 2",
+      "logo": "/assets/imagenes/alianza-2.png",
+      "url": "https://ejemplo.com",
+      "orden": 2,
+      "id": "alianza-ejemplo-2"
+    },
+    {
+      "nombre": "Alianza de ejemplo 3",
+      "logo": "/assets/imagenes/alianza-3.png",
+      "url": "https://ejemplo.com",
+      "orden": 3,
+      "id": "alianza-ejemplo-3"
+    },
+    {
+      "nombre": "Alianza de ejemplo 4",
+      "logo": "/assets/imagenes/alianza-4.png",
+      "url": "https://ejemplo.com",
+      "orden": 4,
+      "id": "alianza-ejemplo-4"
+    }
+  ]
+}

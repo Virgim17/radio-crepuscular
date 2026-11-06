@@ -1,0 +1,8 @@
+{
+  "nombre": "Amanecer Crepuscular",
+  "horario": "05:00 a.m. – 09:00 a.m.",
+  "dias": "Lunes a viernes",
+  "descripcion": "Programa de ejemplo: música, información y buenos días desde Barquisimeto. Edítalo desde el panel.",
+  "imagen": "/assets/imagenes/fondo-hero.jpg",
+  "orden": 1
+}

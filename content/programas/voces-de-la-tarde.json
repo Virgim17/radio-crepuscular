@@ -1,0 +1,8 @@
+{
+  "nombre": "Voces de la Tarde",
+  "horario": "03:00 p.m. – 06:00 p.m.",
+  "dias": "Lunes a viernes",
+  "descripcion": "Programa de ejemplo: entrevistas, comunidad y opinión para acompañar la tarde.",
+  "imagen": "/assets/imagenes/fondo-hero.jpg",
+  "orden": 2
+}

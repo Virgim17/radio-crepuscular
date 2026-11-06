@@ -1,177 +1,224 @@
-<!DOCTYPE html>Upgrade your plan to unlock
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Radio Crepuscular 99.5 FM — Somos las voces... voces combativas." />
-  <meta name="theme-color" content="#1A1A2E" />
-  <title>Radio Crepuscular 99.5 FM ☭ Voces Combativas</title>
-
-  <!-- 1. FAVICON: El icono de la pestaña del navegador -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Radio Crepuscular 99.5 FM</title>
+  <meta name="description" content="Radio Crepuscular 99.5 FM, Barquisimeto. Escucha la radio en vivo, noticias, programas y locutores." />
+  <meta name="theme-color" content="#150E2B" />
+  <meta property="og:title" content="Radio Crepuscular 99.5 FM" />
+  <meta property="og:description" content="Escucha la radio en vivo desde Barquisimeto." />
+  <meta property="og:image" content="https://crepuscularfm.com.ve/assets/imagenes/logo.png" />
   <link rel="icon" type="image/png" href="/assets/imagenes/logo.png" />
 
-  <!-- 2. TIPOGRAFÍAS -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-
-  <!-- 3. CONFIGURACIÓN -->
-  <script src="/config.js"></script>
-  
-  <!-- 4. ESTILOS -->
-  <link rel="stylesheet" href="/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/estilos.css" />
 </head>
 <body>
 
-  <!-- ============== MENÚ (HEADER) - VA PRIMERO Y ES STICKY ============== -->
-  <header class="site-header" role="banner">
-    <div class="header__inner container">
-      <a href="/" class="header__brand" aria-label="Inicio">
-        <img id="header-logo" src="" alt="Logo" class="header__logo" />
-        <div class="header__text">
-          <h1 class="header__title" id="header-nombre">Radio</h1>
-          <span class="header__freq" id="header-freq">FM</span>
-        </div>
-      </a>
+  <!-- Imagen de fondo (se cambia desde el panel: Configuración del sitio) -->
+  <div id="fondo" aria-hidden="true"></div>
 
-      <nav class="header__nav" aria-label="Navegación principal">
-        <button class="nav-toggle" aria-expanded="false" aria-controls="menu-principal">
-          <span></span><span></span><span></span>
-          <span class="sr-only">Menú</span>
-        </button>
-        <ul id="menu-principal" class="nav__list">
-          <li><a href="#noticias">Noticias</a></li>
-          <li><a href="#programas">Programas</a></li>
-          <li><a href="#locutores">Locutores</a></li>
-          <li><a href="#contacto">Contacto</a></li>
-        </ul>
-      </nav>
-    </div
+  <div id="luto" class="luto" hidden></div>
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+
+  <!-- ===== CABECERA Y PESTAÑAS ===== -->
+  <header class="cabecera">
+    <a class="marca" href="#/inicio" aria-label="Ir al inicio">
+      <img id="logo-cab" class="marca__logo" src="/assets/imagenes/logo.png" alt="Logo de Radio Crepuscular" width="52" height="52" />
+      <span class="marca__texto">
+        <strong id="nom-cab">Radio Crepuscular</strong>
+        <span id="frec-cab">99.5 FM</span>
+      </span>
+    </a>
+
+    <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav id="menu" class="menu" aria-label="Secciones del sitio">
+      <a href="#/inicio" data-ruta="inicio">Inicio</a>
+      <a href="#/noticias" data-ruta="noticias">Noticias</a>
+      <a href="#/programas" data-ruta="programas">Programas</a>
+      <a href="#/locutores" data-ruta="locutores">Locutores</a>
+      <a href="#/contactos" data-ruta="contactos">Contactos</a>
+    </nav>
   </header>
 
-  <!-- ============== REPRODUCTOR - VA SEGUNDO, NO ES FIJO ============== -->
-  <div id="player" class="radio-player" role="region" aria-label="Reproductor de radio en vivo">
-    <div class="player__inner container">
-      <div class="player__left">
-        <img id="player-logo" src="" alt="Logo" class="player__logo" />
-        <div class="player__info">
-          <div class="player__name">
-            <span id="player-nombre">Radio</span>
-            <span class="player__freq" id="player-freq">FM</span>
+  <main id="contenido" tabindex="-1">
+
+    <!-- ================= INICIO ================= -->
+    <section data-vista="inicio">
+      <div class="hero">
+        <div class="hero__logo-zona">
+          <div class="hero__sol" aria-hidden="true"></div>
+          <img id="logo-hero" class="hero__logo" src="/assets/imagenes/logo.png" alt="Logo de Radio Crepuscular 99.5 FM" width="500" height="500" />
+        </div>
+        <div class="hero__texto">
+          <h1 id="hero-titulo">Radio Crepuscular 99.5 FM</h1>
+          <p id="hero-slogan" class="hero__slogan"></p>
+          <p id="hero-desc" class="hero__desc"></p>
+          <div class="hero__botones">
+            <button type="button" class="boton boton--sol" id="hero-escuchar">Escuchar en vivo</button>
+            <a class="boton boton--borde" href="#/noticias">Ver noticias</a>
           </div>
-          <div class="player__status">
-            <span class="player__live-dot" aria-hidden="true"></span>
-            <span class="player__live-text">EN VIVO</span>
-          </div>
         </div>
       </div>
 
-      <div class="player__right">
-        <button id="btn-play" class="player__btn player__btn--play" aria-label="Reproducir">
-          <svg id="icon-play" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M8 5v14l11-7z"/>
-          </svg>
-        </button>
+      <div class="inicio">
+        <div class="inicio__principal">
+          <section class="bloque" aria-labelledby="t-noticias">
+            <header class="bloque__cab">
+              <h2 id="t-noticias">Últimas Noticias</h2>
+              <p data-texto="noticias"></p>
+            </header>
+            <div class="rejilla-noticias" id="home-noticias" aria-live="polite"></div>
+            <a class="ver-todo" href="#/noticias">Ver todas las noticias</a>
+          </section>
 
-        <div class="player__volume">
-          <button id="btn-mute" class="player__btn player__btn--icon" aria-label="Silenciar">
-            <svg id="icon-volume" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/>
-            </svg>
-          </button>
-          <input id="volume-slider" type="range" min="0" max="100" value="80" class="player__slider" aria-label="Volumen" />
+          <section class="bloque" aria-labelledby="t-programas">
+            <header class="bloque__cab">
+              <h2 id="t-programas">Nuestros Programas</h2>
+              <p data-texto="programas"></p>
+            </header>
+            <div class="parrilla" id="home-programas" aria-live="polite"></div>
+            <a class="ver-todo" href="#/programas">Ver toda la programación</a>
+          </section>
+
+          <section class="bloque" aria-labelledby="t-voces">
+            <header class="bloque__cab">
+              <h2 id="t-voces">Nuestras Voces</h2>
+              <p data-texto="voces"></p>
+            </header>
+            <div class="voces" id="home-voces" aria-live="polite"></div>
+            <a class="ver-todo" href="#/locutores">Conocer a todos los locutores</a>
+          </section>
+
+          <section class="bloque bloque--contacto" aria-labelledby="t-contacto">
+            <header class="bloque__cab">
+              <h2 id="t-contacto">Encuéntranos</h2>
+            </header>
+            <div class="contacto-doble">
+              <div data-slot="datos"></div>
+              <div>
+                <h3 class="subtitulo">Síguenos</h3>
+                <div data-slot="redes"></div>
+              </div>
+            </div>
+          </section>
         </div>
-      </div>
-    </div>
-  </div>
 
-  <!-- Elemento de audio (oculto) -->
-  <audio id="audio-stream" preload="none"></audio>
-
-  <!-- ============== HERO CON FONDO ============== -->
-  <section class="hero">
-    <div class="container hero__content">
-      <div class="hero__badge">📻 Transmitiendo en vivo</div>
-      <h2 class="hero__slogan" id="hero-slogan">Slogan</h2>
-      <p class="hero__sub" id="hero-sub">Descripción</p>
-      <div class="hero__actions">
-        <a href="#noticias" class="btn btn--primary">Ver noticias</a>
-        <button id="hero-play" class="btn btn--glass">▶ Escuchar en vivo</button>
-      </div>
-    </div>
-  </section>
-
-  <main id="main-content">
-    <section id="noticias" class="section">
-      <div class="container">
-        <header class="section__header">
-          <h2 class="section__title">Últimas Noticias</h2>
-          <p class="section__subtitle">Información sin filtros, directa desde la trinchera.</p>
-        </header>
-        <div id="grid-noticias" class="grid grid--noticias" aria-live="polite">
-          <p class="loading">Cargando noticias…</p>
-        </div>
+        <aside class="inicio__lado" aria-labelledby="t-alianzas">
+          <h2 id="t-alianzas" data-texto="alianzas-titulo">Nuestras Alianzas</h2>
+          <div class="alianzas" data-slot="alianzas"></div>
+        </aside>
       </div>
     </section>
 
-    <section id="programas" class="section section--alt">
-      <div class="container">
-        <header class="section__header">
-          <h2 class="section__title">Nuestra Programación</h2>
-          <p class="section__subtitle">Sintoniza nuestras voces a lo largo de la semana.</p>
+    <!-- ================= NOTICIAS ================= -->
+    <section data-vista="noticias" hidden>
+      <div class="pagina">
+        <header class="bloque__cab">
+          <h1>Noticias</h1>
+          <p data-texto="noticias"></p>
         </header>
-        <div id="grid-programas" class="grid grid--programas" aria-live="polite">
-          <p class="loading">Cargando programas…</p>
-        </div>
+        <div class="rejilla-simple" id="lista-noticias" aria-live="polite"></div>
       </div>
     </section>
 
-    <section id="locutores" class="section">
-      <div class="container">
-        <header class="section__header">
-          <h2 class="section__title">Nuestras Voces</h2>
-          <p class="section__subtitle">Conoce a quienes ponen la cara y la palabra.</p>
+    <!-- ================= PROGRAMAS ================= -->
+    <section data-vista="programas" hidden>
+      <div class="pagina">
+        <header class="bloque__cab">
+          <h1>Programas</h1>
+          <p data-texto="programas"></p>
         </header>
-        <div id="grid-locutores" class="grid grid--locutores" aria-live="polite">
-          <p class="loading">Cargando locutores…</p>
+        <div class="parrilla parrilla--ancha" id="lista-programas" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- ================= LOCUTORES ================= -->
+    <section data-vista="locutores" hidden>
+      <div class="pagina">
+        <header class="bloque__cab">
+          <h1>Locutores</h1>
+          <p data-texto="voces"></p>
+        </header>
+        <div class="voces" id="lista-locutores" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- ================= CONTACTOS ================= -->
+    <section data-vista="contactos" hidden>
+      <div class="pagina pagina--estrecha">
+        <header class="bloque__cab">
+          <h1>Contactos</h1>
+          <p data-texto="contactos"></p>
+        </header>
+        <div class="contacto-doble contacto-doble--grande">
+          <div data-slot="datos"></div>
+          <div>
+            <h2 class="subtitulo">Síguenos</h2>
+            <div data-slot="redes"></div>
+          </div>
         </div>
+        <a class="boton boton--sol" id="boton-correo" href="#">Enviar un correo</a>
+        <h2 class="subtitulo subtitulo--aparte" data-texto="alianzas-titulo">Nuestras Alianzas</h2>
+        <div class="alianzas alianzas--fila" data-slot="alianzas"></div>
       </div>
     </section>
   </main>
 
-  <!-- ============== FOOTER ============== -->
-  <footer id="contacto" class="site-footer" role="contentinfo">
-    <div class="container footer__inner">
-      <div class="footer__brand">
-        <img id="footer-logo" src="" alt="Logo" class="footer__logo" />
-        <h3 id="footer-nombre">Radio</h3>
-        <p class="footer__slogan" id="footer-slogan">Slogan</p>
-      </div>
-      <div class="footer__contact">
-        <h4>Contacto</h4>
-        <ul>
-          <li id="footer-direccion">📍 Dirección</li>
-          <li id="footer-telefono">📞 Teléfono</li>
-          <li id="footer-email">✉️ Email</li>
-        </ul>
-      </div>
-      <div class="footer__social">
-        <h4>Síguenos</h4>
-        <ul class="social__list" id="footer-redes"></ul>
-      </div>
-    </div>
-    
-    <div class="footer__alianzas">
-      <h4>Nuestras Alianzas</h4>
-      <div class="alianzas__grid" id="footer-alianzas"></div>
-    </div>
-
-    <div class="footer__copy">
-      <p>© <span id="year"></span> Radio Crepuscular — Hecho con 🔥 por la comunidad.</p>
-    </div>
+  <footer class="pie">
+    <p>© <span id="anio"></span> <span id="pie-nombre">Radio Crepuscular 99.5 FM</span>. Barquisimeto, Venezuela.</p>
   </footer>
 
-  <script src="https://unpkg.com/marked@12.0.0/marked.min.js"></script>
-  <script src="/app.js" defer></script>
+  <!-- ===== REPRODUCTOR: vive fuera de las pestañas, por eso nunca se interrumpe ===== -->
+  <div class="reproductor" id="reproductor" data-estado="pausa" role="region" aria-label="Reproductor de Radio Crepuscular 99.5 FM">
+    <div class="rp__marca">
+      <div class="rp__aro">
+        <img id="logo-rp" class="rp__logo" src="/assets/imagenes/logo.png" alt="" width="44" height="44" />
+      </div>
+      <div class="rp__textos">
+        <strong id="nom-rp">Radio Crepuscular 99.5 FM</strong>
+        <span id="estado-rp">En vivo</span>
+      </div>
+    </div>
+
+    <div class="eq" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+
+    <button id="rp-play" class="rp__play" type="button" aria-label="Reproducir">
+      <svg class="i-play" viewBox="0 0 24 24" width="26" height="26" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+      <svg class="i-pausa" viewBox="0 0 24 24" width="26" height="26" fill="currentColor" aria-hidden="true"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+      <svg class="i-carga" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9"/></svg>
+    </button>
+
+    <div class="rp__vol">
+      <button id="rp-mute" class="rp__mute" type="button" aria-label="Silenciar">
+        <svg class="i-vol" viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0 0 14 8v8a4.5 4.5 0 0 0 2.5-4zM14 3.2v2.1a7 7 0 0 1 0 13.4v2.1a9 9 0 0 0 0-17.6z"/></svg>
+        <svg class="i-mudo" viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M3 9v6h4l5 5V4L7 9H3zm13.6 3 2.5-2.5-1.4-1.4-2.5 2.5-2.5-2.5-1.4 1.4 2.5 2.5-2.5 2.5 1.4 1.4 2.5-2.5 2.5 2.5 1.4-1.4z"/></svg>
+      </button>
+      <input id="rp-vol" type="range" min="0" max="100" step="1" value="80" aria-label="Volumen" />
+    </div>
+  </div>
+
+  <audio id="audio" preload="none"></audio>
+
+  <!-- Ventana para leer una noticia completa -->
+  <dialog id="dlg-noticia" class="dlg" aria-label="Noticia completa">
+    <article class="dlg__art">
+      <button type="button" class="dlg__cerrar" id="dlg-cerrar" aria-label="Cerrar noticia">×</button>
+      <img id="dlg-img" class="dlg__img" src="" alt="" />
+      <div class="dlg__cuerpo">
+        <time id="dlg-fecha"></time>
+        <h2 id="dlg-titulo"></h2>
+        <div id="dlg-texto" class="dlg__texto"></div>
+      </div>
+    </article>
+  </dialog>
+
+  <script src="/js/app.js" defer></script>
 </body>
 </html>

@@ -1,0 +1,47 @@
+{
+  "nombre": "Radio Crepuscular",
+  "frecuencia": "99.5 FM",
+  "slogan": "Somos las voces… voces combativas.",
+  "descripcion": "Desde Barquisimeto, la radio que despierta con el amanecer y acompaña al pueblo hasta el último destello de la tarde.",
+  "stream_url": "https://sapircast.caster.fm:17635/drrua?token=464fd321efadc8d98f3027b5e94ad747",
+  "logo": "/assets/imagenes/logo.png",
+  "fondo": "/assets/imagenes/fondo-hero.jpg",
+  "contacto": {
+    "direccion": "Barquisimeto, estado Lara, Venezuela",
+    "telefono": "+58 000 000 0000",
+    "email": "contacto@crepuscularfm.com.ve"
+  },
+  "redes": [
+    {
+      "red": "facebook",
+      "url": "https://facebook.com/radiocrepuscular"
+    },
+    {
+      "red": "instagram",
+      "url": "https://instagram.com/radiocrepuscular"
+    },
+    {
+      "red": "twitter",
+      "url": "https://twitter.com/radiocrepuscular"
+    },
+    {
+      "red": "youtube",
+      "url": "https://youtube.com/@radiocrepuscular"
+    },
+    {
+      "red": "tiktok",
+      "url": "https://tiktok.com/@radiocrepuscular"
+    }
+  ],
+  "textos": {
+    "noticias": "Lo que pasa, contado con voz propia.",
+    "programas": "Tu día, de amanecer a anochecer.",
+    "voces": "Las personas detrás del micrófono.",
+    "alianzas": "Nuestras Alianzas",
+    "contactos": "Escríbenos, llámanos o encuéntranos en redes."
+  },
+  "luto": {
+    "activo": false,
+    "mensaje": "Venezuela está de luto. Radio Crepuscular se une al duelo."
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "nombre": "Noche Crepuscular",
+  "horario": "08:00 p.m. – 10:00 p.m.",
+  "dias": "Sábados",
+  "descripcion": "Programa de ejemplo: música y conversación para cerrar el día.",
+  "imagen": "/assets/imagenes/fondo-hero.jpg",
+  "orden": 3
+}

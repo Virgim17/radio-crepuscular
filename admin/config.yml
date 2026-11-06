@@ -1,43 +1,123 @@
+# PANEL DEL ADMINISTRADOR: controla todo, incluida la configuración del sitio.
 backend:
   name: github
   repo: Virgim17/radio-crepuscular
   branch: main
   base_url: https://decap-oauth-proxy.virgim17.workers.dev
 
-media_folder: "assets/imagenes"
-public_folder: "/assets/imagenes"
+site_url: https://crepuscularfm.com.ve
+display_url: https://crepuscularfm.com.ve
+logo_url: https://crepuscularfm.com.ve/assets/imagenes/logo.png
+locale: es
+
+media_folder: assets/imagenes/subidas
+public_folder: /assets/imagenes/subidas
 
 collections:
   - name: "noticias"
     label: "Noticias"
+    label_singular: "Noticia"
     folder: "content/noticias"
+    extension: "json"
+    format: "json"
     create: true
-    slug: "{{day}}-{{month}}-{{year}}-{{slug}}"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    summary: "{{titulo}}"
+    sortable_fields: ["fecha", "titulo"]
     fields:
       - {label: "Título", name: "titulo", widget: "string"}
-      - {label: "Fecha", name: "fecha", widget: "datetime"}
-      - {label: "Imagen", name: "imagen", widget: "image"}
-      - {label: "Contenido", name: "cuerpo", widget: "markdown"}
-
-  - name: "locutores"
-    label: "Locutores"
-    folder: "content/locutores"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - {label: "Nombre", name: "nombre", widget: "string"}
-      - {label: "Foto", name: "foto", widget: "image"}
-      - {label: "Programa", name: "programa", widget: "string"}
-      - {label: "Biografía", name: "bio", widget: "text"}
+      - {label: "Fecha y hora", name: "fecha", widget: "datetime", date_format: "DD/MM/YYYY", time_format: "HH:mm", format: "YYYY-MM-DDTHH:mm:ss", picker_utc: false}
+      - {label: "Foto de la noticia", name: "imagen", widget: "image", choose_url: false}
+      - {label: "Texto (deja una línea en blanco entre párrafos)", name: "cuerpo", widget: "text"}
 
   - name: "programas"
     label: "Programas"
+    label_singular: "Programa"
     folder: "content/programas"
+    extension: "json"
+    format: "json"
     create: true
     slug: "{{slug}}"
+    summary: "{{nombre}} — {{horario}}"
+    fields:
+      - {label: "Nombre del programa", name: "nombre", widget: "string"}
+      - {label: "Horario (ej: 05:00 a.m. – 09:00 a.m.)", name: "horario", widget: "string"}
+      - {label: "Días (ej: Lunes a viernes)", name: "dias", widget: "string"}
+      - {label: "Descripción", name: "descripcion", widget: "text"}
+      - {label: "Foto del programa", name: "imagen", widget: "image", choose_url: false}
+      - {label: "Orden de aparición (1 sale primero)", name: "orden", widget: "number", value_type: "int", min: 1, default: 50, required: false}
+
+  - name: "locutores"
+    label: "Locutores"
+    label_singular: "Locutor"
+    folder: "content/locutores"
+    extension: "json"
+    format: "json"
+    create: true
+    slug: "{{slug}}"
+    summary: "{{nombre}} — {{programa}}"
     fields:
       - {label: "Nombre", name: "nombre", widget: "string"}
-      - {label: "Horario", name: "horario", widget: "string"}
-      - {label: "Días", name: "dias", widget: "string"}
-      - {label: "Descripción", name: "descripcion", widget: "text"}
-      - {label: "Imagen", name: "imagen", widget: "image"}
+      - {label: "Foto", name: "foto", widget: "image", choose_url: false}
+      - {label: "Programa que conduce", name: "programa", widget: "string"}
+      - {label: "Biografía", name: "bio", widget: "text"}
+      - {label: "Orden de aparición (1 sale primero)", name: "orden", widget: "number", value_type: "int", min: 1, default: 50, required: false}
+
+  - name: "alianzas"
+    label: "Alianzas"
+    label_singular: "Alianza"
+    folder: "content/alianzas"
+    extension: "json"
+    format: "json"
+    create: true
+    slug: "{{slug}}"
+    summary: "{{nombre}}"
+    fields:
+      - {label: "Nombre del aliado", name: "nombre", widget: "string"}
+      - {label: "Logo o foto del aliado", name: "logo", widget: "image", choose_url: false}
+      - {label: "Página web del aliado (opcional)", name: "url", widget: "string", required: false}
+      - {label: "Orden de aparición (1 sale primero)", name: "orden", widget: "number", value_type: "int", min: 1, default: 50, required: false}
+
+  - name: "configuracion"
+    label: "Configuración del sitio"
+    files:
+      - label: "Datos generales de la radio"
+        name: "sitio"
+        file: "config/sitio.json"
+        fields:
+          - {label: "Nombre de la radio", name: "nombre", widget: "string"}
+          - {label: "Frecuencia (ej: 99.5 FM)", name: "frecuencia", widget: "string"}
+          - {label: "Frase principal (slogan)", name: "slogan", widget: "string"}
+          - {label: "Descripción corta", name: "descripcion", widget: "text"}
+          - {label: "Enlace de transmisión de Caster.fm", name: "stream_url", widget: "string", hint: "Pega aquí el enlace completo de tu emisora en Caster.fm, incluido el token."}
+          - {label: "Logo", name: "logo", widget: "image", choose_url: false}
+          - {label: "Imagen de fondo (amanecer)", name: "fondo", widget: "image", choose_url: false, hint: "Imagen horizontal, de al menos 1600 píxeles de ancho y menos de 1 MB."}
+          - label: "Datos de contacto"
+            name: "contacto"
+            widget: "object"
+            fields:
+              - {label: "Dirección", name: "direccion", widget: "string"}
+              - {label: "Teléfono", name: "telefono", widget: "string"}
+              - {label: "Correo electrónico", name: "email", widget: "string"}
+          - label: "Redes sociales"
+            name: "redes"
+            widget: "list"
+            summary: "{{fields.red}}"
+            fields:
+              - {label: "Red", name: "red", widget: "select", options: ["facebook", "instagram", "twitter", "youtube", "tiktok", "whatsapp"]}
+              - {label: "Enlace (empieza con https://)", name: "url", widget: "string"}
+          - label: "Textos de las secciones"
+            name: "textos"
+            widget: "object"
+            fields:
+              - {label: "Frase bajo Noticias", name: "noticias", widget: "string"}
+              - {label: "Frase bajo Programas", name: "programas", widget: "string"}
+              - {label: "Frase bajo Voces", name: "voces", widget: "string"}
+              - {label: "Título de Alianzas", name: "alianzas", widget: "string"}
+              - {label: "Frase bajo Contactos", name: "contactos", widget: "string"}
+          - label: "Modo luto"
+            name: "luto"
+            widget: "object"
+            fields:
+              - {label: "Activar modo luto (la página se ve en grises)", name: "activo", widget: "boolean", default: false}
+              - {label: "Mensaje", name: "mensaje", widget: "string"}
