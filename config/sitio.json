@@ -1,16 +1,27 @@
 {
-  "nombre": "Radio Crepuscular",
+  "luto": {
+    "activo": false,
+    "mensaje": "Venezuela está de luto. Radio Crepuscular se une al duelo."
+  },
   "frecuencia": "99.5 FM",
-  "slogan": "Somos las voces… voces combativas.",
+  "nombre": "Radio Crepuscular",
+  "logo": "/assets/imagenes/subidas/logo.png",
   "descripcion": "Desde Barquisimeto, la radio que despierta con el amanecer y acompaña al pueblo hasta el último destello de la tarde.",
-  "stream_url": "https://sapircast.caster.fm:17635/drrua?token=17d7cbb8ebb74a2acbf23101bf9dc7a2",
-  "logo": "/assets/imagenes/logo.png",
-  "fondo": "/assets/imagenes/fondo-hero.jpg",
   "contacto": {
     "direccion": "Barquisimeto, estado Lara, Venezuela",
     "telefono": "+58 000 000 0000",
     "email": "contacto@crepuscularfm.com.ve"
   },
+  "fondo": "/assets/imagenes/fondo-hero.jpg",
+  "stream_url": "https://sapircast.caster.fm:17635/drrua?token=17d7cbb8ebb74a2acbf23101bf9dc7a2",
+  "textos": {
+    "noticias": "Lo que pasa, contado con voz propia.",
+    "programas": "Tu día, de amanecer a anochecer.",
+    "voces": "Las personas detrás del micrófono.",
+    "alianzas": "Nuestras Alianzas",
+    "contactos": "Escríbenos, llámanos o encuéntranos en redes."
+  },
+  "slogan": "Somos las voces… voces combativas.",
   "redes": [
     {
       "red": "facebook",
@@ -32,16 +43,5 @@
       "red": "tiktok",
       "url": "https://tiktok.com/@radiocrepuscular"
     }
-  ],
-  "textos": {
-    "noticias": "Lo que pasa, contado con voz propia.",
-    "programas": "Tu día, de amanecer a anochecer.",
-    "voces": "Las personas detrás del micrófono.",
-    "alianzas": "Nuestras Alianzas",
-    "contactos": "Escríbenos, llámanos o encuéntranos en redes."
-  },
-  "luto": {
-    "activo": false,
-    "mensaje": "Venezuela está de luto. Radio Crepuscular se une al duelo."
-  }
+  ]
 }
