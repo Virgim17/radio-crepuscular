@@ -13,7 +13,7 @@
     "email": "contacto@crepuscularfm.com.ve"
   },
   "fondo": "/assets/imagenes/fondo-hero.jpg",
-  "stream_url": "<div class=\"cstrEmbed\" data-type=\"newStreamPlayer\" data-publicToken=\"dd9d78c6-03ef-43fd-b2bd-ed69af1d2ba7\" data-theme=\"light\" data-color=\"6C2BDD\" data-channelId=\"\" data-rendered=\"false\"> <a href=\"https://www.caster.fm\">Shoutcast Hosting</a> <a href=\"https://www.caster.fm\">Stream Hosting</a> <a href=\"https://www.caster.fm\">Radio Server Hosting</a></div> <script src=\"//cdn.cloud.caster.fm//widgets/embed.js\"></script>",
+  "stream_url": "https://sapircast.caster.fm:17635/drrua?token=ccda2081d11a629316bca71997f92710",
   "textos": {
     "noticias": "Lo que pasa, contado con voz propia.",
     "programas": "Tu día, de amanecer a anochecer.",
