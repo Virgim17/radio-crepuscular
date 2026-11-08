@@ -13,7 +13,7 @@
     "email": "contacto@crepuscularfm.com.ve"
   },
   "fondo": "/assets/imagenes/fondo-hero.jpg",
-  "stream_url": "37.157.242.105:24454",
+  "stream_url": "http://37.157.242.105:24453/stream",
   "textos": {
     "noticias": "Lo que pasa, contado con voz propia.",
     "programas": "Tu día, de amanecer a anochecer.",
