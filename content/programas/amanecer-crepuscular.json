@@ -1,8 +1,8 @@
 {
-  "nombre": "Amanecer Crepuscular",
-  "horario": "05:00 a.m. – 09:00 a.m.",
-  "dias": "Lunes a viernes",
-  "descripcion": "Programa de ejemplo: música, información y buenos días desde Barquisimeto. Edítalo desde el panel.",
+  "nombre": "Bunas Tardes Lara",
+  "horario": "12:00 m. – 02:00 p.m.",
+  "dias": "Lunes",
+  "descripcion": "Información, actualidad regional y el sentir del pueblo Larense",
   "imagen": "/assets/imagenes/fondo-hero.jpg",
   "orden": 1
 }
