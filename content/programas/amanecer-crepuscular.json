@@ -1,8 +1,8 @@
 {
-  "nombre": "Buenas Tardes Lara",
-  "horario": "12:00 m. – 02:00 p.m.",
+  "nombre": "Gaitas",
+  "horario": "02:00 m. – 04:00 p.m.",
   "dias": "Lunes",
-  "descripcion": "Información, actualidad regional y el sentir del pueblo Larense",
+  "descripcion": "Tardes de Gaitas Venezolanas, con Bladimir Paradas",
   "imagen": "/assets/imagenes/fondo-hero.jpg",
   "orden": 1
 }
