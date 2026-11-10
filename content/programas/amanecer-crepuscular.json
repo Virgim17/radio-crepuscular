@@ -1,7 +1,7 @@
 {
   "nombre": "Gaitas",
   "horario": "02:00 m. – 04:00 p.m.",
-  "dias": "Lunes",
+  "dias": "Lunes a Viernes",
   "descripcion": "Tardes de Gaitas Venezolanas, con Bladimir Paradas",
   "imagen": "/assets/imagenes/fondo-hero.jpg",
   "orden": 2
