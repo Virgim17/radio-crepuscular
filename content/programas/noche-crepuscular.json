@@ -1,8 +1,8 @@
 {
-  "nombre": "Noche Crepuscular",
-  "horario": "08:00 p.m. – 10:00 p.m.",
-  "dias": "Sábados",
-  "descripcion": "Programa de ejemplo: música y conversación para cerrar el día.",
+  "nombre": "Buenas Tardes Lara",
+  "horario": "12:00 m. – 02:00 p.m.",
+  "dias": "Lunes",
+  "descripcion": "Información, actualidad Regional y el Sentir  del Pueblo Laraense",
   "imagen": "/assets/imagenes/fondo-hero.jpg",
-  "orden": 3
+  "orden": 1
 }
