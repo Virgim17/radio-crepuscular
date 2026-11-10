@@ -1,8 +1,8 @@
 {
-  "nombre": "Voces de la Tarde",
-  "horario": "03:00 p.m. – 06:00 p.m.",
+  "nombre": "Sentimiento Vallenato",
+  "horario": "06:00 p.m. – 09:00 p.m.",
   "dias": "Lunes a viernes",
-  "descripcion": "Programa de ejemplo: entrevistas, comunidad y opinión para acompañar la tarde.",
+  "descripcion": "Parrandero de Acordeón y Despecho, con Luis Mujica",
   "imagen": "/assets/imagenes/fondo-hero.jpg",
   "orden": 2
 }
